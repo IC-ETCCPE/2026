@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="International Conference on Emerging Trends in Catalysis and Chemical Process Engineering (IC-ETCCPE 2026) at IIT Jodhpur, December 19-20, 2026.">
+  <title>IC-ETCCPE 2026 — International Conference on Emerging Trends in Catalysis and Chemical Process Engineering</title>
+  
+  <!-- Styling and Fonts -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+</head>
+<body>
+
+  <!-- STICKY NAVBAR -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <!-- Left: IIT Jodhpur Rectangular Logo & Conf Brand -->
+      <a href="#hero" class="nav-brand">
+        <img src="images/iitjlogo.jpeg" alt="IIT Jodhpur Logo" class="nav-iitj-logo">
+        <div class="nav-conf-badge">
+          <span class="nav-acronym">IC-ETCCPE 2026</span>
+        </div>
+      </a>
+
+      <!-- Center: Navigation Links -->
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#themes">Themes</a></li>
+        <li><a href="#dates">Key Dates</a></li>
+        <li><a href="#speakers">Speakers</a></li>
+        <li><a href="#committee">Committee</a></li>
+        <li><a href="#registration">Registration</a></li>
+        <li><a href="#sponsorship">Sponsorship</a></li>
+        <li><a href="#venue">Venue</a></li>
+        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+      </ul>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <section class="hero" id="hero">
+    <canvas id="hero-canvas"></canvas>
+    
+    <div class="hero-content">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        <span>IIT Jodhpur · Department of Chemical Engineering · Rajasthan, India</span>
+      </div>
+
+      <h1 class="hero-title">
+        International Conference on<br>
+        <em>Emerging Trends in Catalysis &amp;<br>Chemical Process Engineering</em>
+      </h1>
+
+
+      <div class="hero-badge-wrap">
+        <span class="hero-pill">IC-ETCCPE 2026</span>
+        <span class="hero-pill dates">December 19 – 20, 2026</span>
+        <span class="hero-pill">In-person / Offline Mode</span>
+      </div>
+
+      <div class="hero-organiser">
+        Organized by <strong>Department of Chemical Engineering, Indian Institute of Technology Jodhpur</strong>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#registration" class="btn btn-primary">Register Now</a>
+        <a href="#about" class="btn btn-amber">Call for Abstracts</a>
+        <a href="#contact" class="btn btn-outline">Contact Us</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="section about" id="about">
+    <div class="container">
+
+      <div class="about-card-hero reveal">
+        <h3>Background &amp; Rationale</h3>
+        <p>
+          Chemical engineering is a central research area in addressing global challenges related to climate change, energy security, resource scarcity, environmental sustainability, and the transition towards circular production systems.
+        </p>
+        <p>
+          The <strong>International Conference on Emerging Trends in Catalysis and Chemical Process Engineering (IC-ETCCPE 2026)</strong> aims to provide an interdisciplinary platform for researchers, academicians, and industry professionals to exchange ideas in the chemical engineering field that enable sustainable, scalable, and resource-efficient technologies.
+        </p>
+        <p>
+          The conference will bring together fundamental and applied research spanning molecular and process-level engineering through reactor design, separation, process intensification, energy systems, biotechnology, resource recovery, carbon management, and systems-level assessment.
+        </p>
+      </div>
+
+      <!-- OBJECTIVES (3 top, 2 centered bottom) -->
+      <div class="about-objectives">
+        <div class="section-label center">Mission &amp; Goals</div>
+        <h2 class="section-heading center">Objectives of IC-ETCCPE 2026</h2>
+        
+        <div class="objectives-grid">
+          <!-- Row 1: Item 1 -->
+          <div class="obj-card reveal">
+            <div class="obj-num">01</div>
+            <p>To present the latest developments in emerging chemical engineering and process technologies.</p>
+          </div>
+
+          <!-- Row 1: Item 2 -->
+          <div class="obj-card reveal">
+            <div class="obj-num">02</div>
+            <p>To bring together researchers from chemical engineering, energy, materials science, AI/ML, and environmental engineering.</p>
+          </div>
+
+          <!-- Row 1: Item 3 -->
+          <div class="obj-card reveal">
+            <div class="obj-num">03</div>
+            <p>To connect research with practical applications, process development, scale-up, and industrial use.</p>
+          </div>
+
+          <!-- Row 2 (Centered): Item 4 -->
+          <div class="obj-card reveal">
+            <div class="obj-num">04</div>
+            <p>To encourage collaborations between universities, research organizations, and industrial leaders.</p>
+          </div>
+
+          <!-- Row 2 (Centered): Item 5 -->
+          <div class="obj-card reveal">
+            <div class="obj-num">05</div>
+            <p>To provide opportunities for students and early-career researchers to present their work and build professional networks.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- INSTITUTION DETAILS -->
+      <div class="inst-grid">
+        <div class="inst-card reveal">
+          <div class="inst-icon">🏛</div>
+          <div>
+            <h3>Indian Institute of Technology Jodhpur</h3>
+            <p>
+              IIT Jodhpur, established in 2008, is an Institute of National Importance dedicated to excellence in education, research, innovation, and interdisciplinary collaboration. Located in Rajasthan, a region characterized by arid and semi-arid climatic conditions, the institute actively engages in developing sustainable and technology-driven solutions to address regional and global challenges.
+            </p>
+          </div>
+        </div>
+
+        <div class="inst-card reveal">
+          <div class="inst-icon">⚗</div>
+          <div>
+            <h3>Department of Chemical Engineering</h3>
+            <p>
+              The Department of Chemical Engineering serves as the organizing department for IC-ETCCPE 2026. The Department is committed to developing a new generation of chemical engineering education and research that combines fundamentals with emerging technologies. The Department fosters active collaborations with DRDO, the Ministry of Jal Shakti, and the International Atomic Energy Agency (IAEA).
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- THEMES SECTION (Pair of 2, 2x2 Grid) -->
+  <section class="section themes" id="themes">
+    <div class="container">
+      <div class="section-label center">Core Scientific Focus</div>
+      <h2 class="section-heading center">Themes of IC-ETCCPE 2026</h2>
+      <div class="themes-grid">
+        <!-- Pair 1: Theme 1 -->
+        <div class="theme-card reveal">
+          <div class="theme-top">
+            <div class="theme-icon">🔬</div>
+            <div class="theme-num">01</div>
+          </div>
+          <h3>Catalysis for Sustainable Processes</h3>
+          <ul>
+            <li>Nanomaterials, porous materials, and membranes</li>
+            <li>Catalysts and catalyst supports</li>
+            <li>Functional materials</li>
+            <li>Materials for energy and environmental applications</li>
+          </ul>
+        </div>
+
+        <!-- Pair 1: Theme 2 -->
+        <div class="theme-card reveal">
+          <div class="theme-top">
+            <div class="theme-icon">⚡</div>
+            <div class="theme-num">02</div>
+          </div>
+          <h3>Green Energy and Hydrogen Technologies</h3>
+          <ul>
+            <li>Hydrogen production and storage, fuel cells</li>
+            <li>Electrochemical processes and renewable fuels</li>
+            <li>CO₂ capture, conversion, and utilization</li>
+            <li>Carbon mineralization and catalytic CO₂ valorization</li>
+          </ul>
+        </div>
+
+        <!-- Pair 2: Theme 3 -->
+        <div class="theme-card reveal">
+          <div class="theme-top">
+            <div class="theme-icon">♻</div>
+            <div class="theme-num">03</div>
+          </div>
+          <h3>Waste-to-Wealth and Circular Economy</h3>
+          <ul>
+            <li>Waste valorization and biomass conversion</li>
+            <li>Plastic and polymer recycling</li>
+            <li>Industrial waste utilization and environmental remediation</li>
+            <li>Resource recovery and life cycle assessment (LCA)</li>
+          </ul>
+        </div>
+
+        <!-- Pair 2: Theme 4 -->
+        <div class="theme-card reveal">
+          <div class="theme-top">
+            <div class="theme-icon">🤖</div>
+            <div class="theme-num">04</div>
+          </div>
+          <h3>AI/ML and Digitalization in Process Industries</h3>
+          <ul>
+            <li>Artificial intelligence, machine learning, and digital twins</li>
+            <li>Data-driven modelling and simulation</li>
+            <li>Process monitoring, optimization, and control</li>
+            <li>Predictive analytics and techno-economic analysis</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- KEY DATES & TIMELINE -->
+  <section class="section dates" id="dates">
+    <div class="container">
+      <div class="section-label center">Important Deadlines</div>
+      <h2 class="section-heading center">Conference Timeline</h2>
+      <p class="section-desc">Mark your calendar for abstract submissions, notifications, and early bird registration.</p>
+
+      <div class="timeline">
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">15 – 30 September 2026</div>
+            <div class="tl-event">Abstract Submission Window (Oral &amp; Poster)</div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">20 October 2026</div>
+            <div class="tl-event">Notification for Abstract Acceptance</div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card highlight">
+            <div class="tl-date">20 Oct – 05 Nov 2026</div>
+            <div class="tl-event">Early Bird Registration Window</div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot"></div>
+          <div class="tl-card">
+            <div class="tl-date">01 December 2026</div>
+            <div class="tl-event">Technical Program Announcement</div>
+          </div>
+        </div>
+
+        <div class="tl-item reveal">
+          <div class="tl-dot conference"></div>
+          <div class="tl-card conf-card">
+            <div class="tl-badge conf-badge">Main Event</div>
+            <div class="tl-date">19 – 20 December 2026</div>
+            <div class="tl-event">IC-ETCCPE 2026 at IIT Jodhpur</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SPEAKERS SECTION (15 Speakers from Conference Note Document) -->
+  <section class="section speakers" id="speakers">
+    <div class="container">
+      <div class="section-label center">Eminent Experts</div>
+      <h2 class="section-heading center">Invited Speakers</h2>
+
+      <div class="speakers-grid">
+        <!-- Speaker 1 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_1&gt;</div>
+          <div class="speaker-name">Padma Shri Prof. Ashutosh Sharma</div>
+          <div class="speaker-role">Institute Chair Professor, IIT Kanpur, India</div>
+        </div>
+
+        <!-- Speaker 2 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_2&gt;</div>
+          <div class="speaker-name">Prof. S. Basu</div>
+          <div class="speaker-role">Affiliation</div>
+        </div>
+
+        <!-- Speaker 3 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_3&gt;</div>
+          <div class="speaker-name">Prof. Sanjay Mahajani</div>
+          <div class="speaker-role">Affiliation</div>
+        </div>
+
+        <!-- Speaker 4 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_4&gt;</div>
+          <div class="speaker-name">Prof. A. B. Pandit</div>
+          <div class="speaker-role">Affiliation</div>
+        </div>
+
+        <!-- Speaker 5 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_5&gt;</div>
+          <div class="speaker-name">Prof. Preeti Aghalayam</div>
+          <div class="speaker-role">Affiliation</div>
+        </div>
+
+        <!-- Speaker 6 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_6&gt;</div>
+          <div class="speaker-name">Prof. Hari Vuthaluru</div>
+          <div class="speaker-role">Curtin University, Australia</div>
+        </div>
+
+        <!-- Speaker 7 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_7&gt;</div>
+          <div class="speaker-name">Prof. Kalpit Shah</div>
+          <div class="speaker-role">RMIT University, Australia</div>
+        </div>
+
+        <!-- Speaker 8 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_8&gt;</div>
+          <div class="speaker-name">Prof. Dalhousie</div>
+          <div class="speaker-role">University, Canada</div>
+        </div>
+
+        <!-- Speaker 9 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_9&gt;</div>
+          <div class="speaker-name">Prof. Kapil Moothi</div>
+          <div class="speaker-role">North-West University, South Africa</div>
+        </div>
+
+        <!-- Speaker 10 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_10&gt;</div>
+          <div class="speaker-name">Prof. Mareev</div>
+          <div class="speaker-role">Kuban State University</div>
+        </div>
+
+        <!-- Speaker 11 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_11&gt;</div>
+          <div class="speaker-name">Prof. Manish Tewari</div>
+          <div class="speaker-role">University College London (UCL)</div>
+        </div>
+
+        <!-- Speaker 12 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_12&gt;</div>
+          <div class="speaker-name">Prof. Kaustubh Mohanty</div>
+          <div class="speaker-role">IIT Guwahati, India</div>
+        </div>
+
+        <!-- Speaker 13 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_13&gt;</div>
+          <div class="speaker-name">Prof. Vivek Polshettiwar</div>
+          <div class="speaker-role">TIFR Mumbai, India</div>
+        </div>
+
+        <!-- Speaker 14 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_14&gt;</div>
+          <div class="speaker-name">Prof. Vel Murugan Vadivelu</div>
+          <div class="speaker-role">University Sains Malaysia, Malaysia</div>
+        </div>
+
+        <!-- Speaker 15 -->
+        <div class="speaker-card reveal">
+          <div class="photo-placeholder">&lt;person_photo_15&gt;</div>
+          <div class="speaker-name">Dr. Praveen Saini</div>
+          <div class="speaker-role">AcSIR-Delhi, India</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMMITTEE SECTION -->
+  <section class="section committee" id="committee">
+    <div class="container">
+      <div class="section-label center">Leadership &amp; Team</div>
+      <h2 class="section-heading center">Organizing Committee</h2>
+
+      <!-- LEADERSHIP CARDS -->
+      <div class="committee-leadership">
+        <!-- PATRON -->
+        <div class="leader-card reveal">
+          <div class="leader-badge">Patron</div>
+          <div class="photo-placeholder leader">&lt;patron_photo_1&gt;</div>
+          <div class="leader-name">Prof. Avinash Kumar Agarwal</div>
+          <div class="leader-role">Director, IIT Jodhpur</div>
+        </div>
+
+        <!-- CONVENER 1 -->
+        <div class="leader-card reveal">
+          <div class="leader-badge">Convener</div>
+          <div class="photo-placeholder leader">&lt;convener_photo_1&gt;</div>
+          <div class="leader-name">Dr. Vikky Anand</div>
+          <div class="leader-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
+        </div>
+
+        <!-- CONVENER 2 -->
+        <div class="leader-card reveal">
+          <div class="leader-badge">Convener</div>
+          <div class="photo-placeholder leader">&lt;convener_photo_2&gt;</div>
+          <div class="leader-name">Prof. Parag A. Deshpande</div>
+          <div class="leader-role">Professor &amp; Head, Department of Chemical Engineering, IIT Jodhpur</div>
+        </div>
+      </div>
+
+      <!-- COMMITTEE MEMBERS GRID (3 in Row 1, 2 Centered in Row 2) -->
+      <h3 class="comm-members-title">Organizing Committee Members</h3>
+      <div class="comm-grid">
+        <!-- Row 1: Member 1 -->
+        <div class="comm-card reveal">
+          <div class="photo-placeholder">&lt;committee_photo_1&gt;</div>
+          <div class="comm-name">Dr. Prashant K. Gupta</div>
+          <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
+        </div>
+
+        <!-- Row 1: Member 2 -->
+        <div class="comm-card reveal">
+          <div class="photo-placeholder">&lt;committee_photo_2&gt;</div>
+          <div class="comm-name">Dr. Manoj K. Jena</div>
+          <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
+        </div>
+
+        <!-- Row 1: Member 3 -->
+        <div class="comm-card reveal">
+          <div class="photo-placeholder">&lt;committee_photo_3&gt;</div>
+          <div class="comm-name">Dr. Sumit Parvate</div>
+          <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
+        </div>
+
+        <!-- Row 2 (Centered): Member 4 -->
+        <div class="comm-card reveal">
+          <div class="photo-placeholder">&lt;committee_photo_4&gt;</div>
+          <div class="comm-name">Dr. Sumit Kamal</div>
+          <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
+        </div>
+
+        <!-- Row 2 (Centered): Member 5 -->
+        <div class="comm-card reveal">
+          <div class="photo-placeholder">&lt;committee_photo_5&gt;</div>
+          <div class="comm-name">Dr. Rachael J. Barla</div>
+          <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- REGISTRATION SECTION -->
+  <section class="section registration" id="registration">
+    <div class="container">
+      <div class="section-label center">Participation &amp; Fees</div>
+      <h2 class="section-heading center">Registration Fee Structure</h2>
+      <p class="section-desc">All fees are inclusive of 18% GST.</p>
+
+      <div class="reg-card-main reveal">
+        <div class="reg-table-wrap">
+          <table class="reg-table">
+            <thead>
+              <tr>
+                <th>Category</th>
+                <th>Without Accommodation (INR / USD)</th>
+                <th>With Accommodation (INR / USD)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Indian Students</strong></td>
+                <td class="price-val">₹ 3,540</td>
+                <td class="price-val">₹ 6,500</td>
+              </tr>
+              <tr>
+                <td><strong>Foreign Students</strong></td>
+                <td class="price-val">$ 150</td>
+                <td class="price-val">$ 300</td>
+              </tr>
+              <tr>
+                <td><strong>Indian Academic Delegates</strong></td>
+                <td class="price-val">₹ 7,080</td>
+                <td class="price-val">₹ 13,000</td>
+              </tr>
+              <tr>
+                <td><strong>Foreign Academic Delegates</strong></td>
+                <td class="price-val">$ 250</td>
+                <td class="price-val">$ 450</td>
+              </tr>
+              <tr>
+                <td><strong>Non-Academic Participants (Industry)</strong></td>
+                <td class="price-val">₹ 11,800</td>
+                <td class="price-val">₹ 16,900</td>
+              </tr>
+              <tr>
+                <td><strong>Accompanying Person</strong></td>
+                <td class="price-val">On Enquiry</td>
+                <td class="price-val">On Enquiry</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="reg-notes">
+          <h4>Important Registration Guidelines</h4>
+          <ul>
+            <li>Accommodation will be provided in the student hostel on a first-cum-first-served basis.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- COUNTDOWN TIMER -->
+  <section class="countdown-section">
+    <div class="countdown-label">Conference Begins In</div>
+    <div class="countdown-grid">
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-days">00</div>
+        <div class="countdown-unit-label">Days</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-hours">00</div>
+        <div class="countdown-unit-label">Hours</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-mins">00</div>
+        <div class="countdown-unit-label">Minutes</div>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <div class="countdown-num" id="cd-secs">00</div>
+        <div class="countdown-unit-label">Seconds</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION (Requirement 8: Clean single-line title & alignment) -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="section-label center">Get In Touch</div>
+      <h2 class="section-heading center">Contact Us</h2>
+
+      <div class="contact-grid">
+        <div class="contact-block reveal">
+          <div class="contact-icon">✉</div>
+          <div class="contact-label">Email Queries</div>
+          <div class="contact-value"><a href="mailto:iccpe@iitj.ac.in">iccpe@iitj.ac.in</a></div>
+        </div>
+
+        <div class="contact-block reveal">
+          <div class="contact-icon">🏛</div>
+          <div class="contact-label">Venue Address</div>
+          <div class="contact-value">Department of Chemical Engineering,<br>IIT Jodhpur, Karwar, NH-62, Rajasthan</div>
+        </div>
+
+        <div class="contact-block reveal">
+          <div class="contact-icon">📅</div>
+          <div class="contact-label">Conference Dates</div>
+          <div class="contact-value">19 – 20 December 2026</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand">IC-ETCCPE 2026</div>
+    <p class="footer-tagline">
+      International Conference on Emerging Trends in Catalysis and Chemical Process Engineering
+    </p>
+    <p class="footer-meta">
+      Department of Chemical Engineering · Indian Institute of Technology Jodhpur · Rajasthan, India
+    </p>
+    <p class="footer-copy">
+      © 2026 IC-ETCCPE. All rights reserved.
+    </p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
