@@ -366,8 +366,8 @@ img {
 }
 
 .hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  font-family: Cambria, Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
   font-weight: 700;
   line-height: 1.14;
   margin-bottom: 20px;
@@ -820,11 +820,11 @@ img {
 
 /* STYLIZED PHOTO PLACEHOLDERS */
 .photo-placeholder {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 200px;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, #102a45, #07192e);
-  border: 2px dashed rgba(6, 182, 212, 0.45);
+  border: 1px solid #000;
   color: var(--cyan-accent);
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -833,16 +833,24 @@ img {
   justify-content: center;
   margin: 0 auto 16px auto;
   text-align: center;
-  padding: 6px;
+  padding: 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: var(--transition);
 }
 
 .photo-placeholder.leader {
-  width: 130px;
-  height: 130px;
-  border-color: var(--amber-light);
+  width: 180px;
+  height: 240px;
+  border-color: #000;
   color: var(--amber-light);
+}
+
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
 }
 
 /* REQUIREMENT 2: ORGANIZING COMMITTEE SUB-SECTIONS (PATRON, CO-PATRON, CONVENER, CO-CONVENER, SECRETARY) */
@@ -1333,7 +1341,7 @@ img {
   }
 
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
   }
 
   .countdown-grid {
@@ -1667,7 +1675,7 @@ img {
         <div class="comm-sub-title">Patron</div>
         <div class="comm-row-1">
           <div class="leader-card">
-            <div class="photo-placeholder leader">&lt;patron_photo_1&gt;</div>
+            <div class="photo-placeholder leader"><img src="images/patron_photo_1.jpeg" alt="Prof. Avinash Kumar Agarwal"></div>
             <div class="leader-name">Prof. Avinash Kumar Agarwal</div>
             <div class="leader-role">Director, IIT Jodhpur</div>
           </div>
@@ -1679,7 +1687,7 @@ img {
         <div class="comm-sub-title">Co-Patron</div>
         <div class="comm-row-1">
           <div class="leader-card">
-            <div class="photo-placeholder leader">&lt;copatron_photo_1&gt;</div>
+            <div class="photo-placeholder leader"><img src="images/copatron_photo_1.jpg" alt="Prof. Parag A. Deshpande"></div>
             <div class="leader-name">Prof. Parag A. Deshpande</div>
             <div class="leader-role">Professor &amp; Head, Department of Chemical Engineering, IIT Jodhpur</div>
           </div>
@@ -1691,12 +1699,12 @@ img {
         <div class="comm-sub-title">Convener</div>
         <div class="comm-row-2">
           <div class="comm-card">
-            <div class="photo-placeholder">&lt;convenor_photo_1&gt;</div>
+            <div class="photo-placeholder"><img src="images/convenor_photo_1.jpg" alt="Dr. Vikky Anand"></div>
             <div class="comm-name">Dr. Vikky Anand</div>
             <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
           </div>
           <div class="comm-card">
-            <div class="photo-placeholder">&lt;convenor_photo_2&gt;</div>
+            <div class="photo-placeholder"><img src="images/convenor_photo_2.jpeg" alt="Dr. Prashant K. Gupta"></div>
             <div class="comm-name">Dr. Prashant K. Gupta</div>
             <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
           </div>
@@ -1708,12 +1716,12 @@ img {
         <div class="comm-sub-title">Co-Convener</div>
         <div class="comm-row-2">
           <div class="comm-card">
-            <div class="photo-placeholder">&lt;coconvenor_photo_1&gt;</div>
+            <div class="photo-placeholder"><img src="images/coconvenor_photo_1.jpg" alt="Dr. Sumit Parvate"></div>
             <div class="comm-name">Dr. Sumit Parvate</div>
             <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
           </div>
           <div class="comm-card">
-            <div class="photo-placeholder">&lt;coconvenor_photo_2&gt;</div>
+            <div class="photo-placeholder"><img src="images/coconvenor_photo_2.jpg" alt="Dr. Manoj K. Jena"></div>
             <div class="comm-name">Dr. Manoj K. Jena</div>
             <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
           </div>
@@ -1725,12 +1733,12 @@ img {
         <div class="comm-sub-title">Organising Secretary</div>
         <div class="comm-row-2">
           <div class="comm-card">
-            <div class="photo-placeholder">&lt;secretary_photo_1&gt;</div>
+            <div class="photo-placeholder"><img src="images/secretary_photo_1.jpg" alt="Dr. Sumit Kamal"></div>
             <div class="comm-name">Dr. Sumit Kamal</div>
             <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
           </div>
           <div class="comm-card">
-            <div class="photo-placeholder">&lt;secretary_photo_2&gt;</div>
+            <div class="photo-placeholder"><img src="images/secretary_photo_2.jpeg" alt="Dr. Rachael J. Barla"></div>
             <div class="comm-name">Dr. Rachael J. Barla</div>
             <div class="comm-role">Assistant Professor, Department of Chemical Engineering, IIT Jodhpur</div>
           </div>

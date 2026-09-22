@@ -356,8 +356,8 @@ img {
 }
 
 .hero-title {
-  font-family: var(--font-serif);
-  font-size: clamp(2.4rem, 5.2vw, 4.2rem);
+  font-family: Cambria, Georgia, 'Times New Roman', serif;
+  font-size: clamp(2rem, 4.2vw, 3.4rem);
   font-weight: 700;
   line-height: 1.14;
   margin-bottom: 20px;
@@ -810,11 +810,11 @@ img {
 
 /* STYLIZED PHOTO PLACEHOLDERS */
 .photo-placeholder {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 200px;
   border-radius: var(--radius-md);
   background: linear-gradient(135deg, #102a45, #07192e);
-  border: 2px dashed rgba(6, 182, 212, 0.45);
+  border: 1px solid #000;
   color: var(--cyan-accent);
   font-family: var(--font-mono);
   font-size: 0.78rem;
@@ -823,16 +823,24 @@ img {
   justify-content: center;
   margin: 0 auto 16px auto;
   text-align: center;
-  padding: 6px;
+  padding: 0;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
   transition: var(--transition);
 }
 
 .photo-placeholder.leader {
-  width: 130px;
-  height: 130px;
-  border-color: var(--amber-light);
+  width: 180px;
+  height: 240px;
+  border-color: #000;
   color: var(--amber-light);
+}
+
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+  display: block;
 }
 
 /* REQUIREMENT 2: ORGANIZING COMMITTEE SUB-SECTIONS (PATRON, CO-PATRON, CONVENER, CO-CONVENER, SECRETARY) */
@@ -1323,7 +1331,7 @@ img {
   }
 
   .hero-title {
-    font-size: 2.1rem;
+    font-size: 1.8rem;
   }
 
   .countdown-grid {
