@@ -51,6 +51,86 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
+  // 4. Invited Speaker Carousel
+  const speakerStage = document.querySelector('.speaker-stage');
+  const speakerSlides = Array.from(document.querySelectorAll('.speaker-slide'));
+  const speakerPages = Array.from(document.querySelectorAll('.speaker-page'));
+  if (speakerStage && speakerSlides.length && speakerPages.length === 3) {
+    const speakerCards = speakerSlides.flatMap(slide => Array.from(slide.querySelectorAll('.speaker-card')));
+    const speakerTrack = document.createElement('div');
+    speakerTrack.className = 'speaker-track';
+    speakerCards.forEach(card => speakerTrack.append(card));
+    speakerCards.slice(0, 4).forEach(card => {
+      const copy = card.cloneNode(true);
+      copy.setAttribute('aria-hidden', 'true');
+      copy.inert = true;
+      speakerTrack.append(copy);
+    });
+    speakerStage.replaceChildren(speakerTrack);
+
+    let currentPosition = 0;
+    let speakerResetTimer;
+
+    function showSpeakerPosition(position, animate = true) {
+      currentPosition = position;
+      const mobileLayout = window.matchMedia('(max-width: 768px)').matches;
+      if (mobileLayout) {
+        Array.from(speakerTrack.children).forEach((card, cardIndex) => {
+          const isVisible = cardIndex >= position && cardIndex < position + 4;
+          const wasVisible = card.classList.contains('is-visible');
+          card.classList.toggle('is-visible', isVisible);
+          card.classList.toggle('is-entering', isVisible && animate && !wasVisible);
+          card.setAttribute('aria-hidden', String(!isVisible));
+          card.inert = !isVisible;
+        });
+      } else {
+        const offset = speakerTrack.children[position].offsetLeft;
+        if (!animate) speakerTrack.style.transition = 'none';
+        speakerTrack.style.transform = `translateX(-${offset}px)`;
+        if (!animate) {
+          speakerTrack.offsetHeight;
+          speakerTrack.style.removeProperty('transition');
+        }
+
+        Array.from(speakerTrack.children).forEach((card, cardIndex) => {
+          const isVisible = cardIndex >= position && cardIndex < position + 4;
+          card.setAttribute('aria-hidden', String(!isVisible));
+          card.inert = !isVisible;
+        });
+      }
+
+      const activePage = Math.floor((position % speakerCards.length) / 3);
+      speakerPages.forEach((page, pageIndex) => {
+        const isActive = pageIndex === activePage;
+        page.classList.toggle('is-active', isActive);
+        if (isActive) page.setAttribute('aria-current', 'true');
+        else page.removeAttribute('aria-current');
+      });
+    }
+
+    function advanceSpeakerPosition() {
+      if (currentPosition === speakerCards.length - 1) {
+        showSpeakerPosition(speakerCards.length, true);
+        speakerResetTimer = window.setTimeout(() => showSpeakerPosition(0, false), 620);
+      } else {
+        showSpeakerPosition(currentPosition + 1);
+      }
+    }
+
+    showSpeakerPosition(0, false);
+    let speakerTimer = window.setInterval(advanceSpeakerPosition, 3000);
+    speakerPages.forEach((page, pageIndex) => {
+      page.addEventListener('click', () => {
+        window.clearTimeout(speakerResetTimer);
+        showSpeakerPosition(pageIndex * 3);
+        window.clearInterval(speakerTimer);
+        speakerTimer = window.setInterval(advanceSpeakerPosition, 3000);
+      });
+    });
+
+    window.addEventListener('resize', () => showSpeakerPosition(currentPosition, false));
+  }
+
   // 4. Live Countdown Timer to December 19, 2026
   const conferenceDate = new Date('2026-12-19T09:00:00+05:30').getTime();
 

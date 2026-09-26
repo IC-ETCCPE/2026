@@ -760,6 +760,86 @@ img {
   background: var(--sand-bg);
 }
 
+.speaker-carousel {
+  margin: 32px auto 0;
+}
+
+.speaker-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.speaker-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.speaker-card {
+  box-sizing: border-box;
+  flex: 0 0 calc((100% - 72px) / 4);
+  min-width: 0;
+  padding: 12px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.speaker-photo {
+  width: 150px;
+  height: 200px;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: #eaf3f4;
+}
+
+.speaker-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.speaker-card .speaker-name {
+  margin: 0 0 8px;
+  color: var(--navy-deep);
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.speaker-affiliation {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.speaker-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.speaker-page {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #aab9bd;
+  cursor: pointer;
+}
+
+.speaker-page.is-active {
+  background: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.16);
+}
+
 .tba-card {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -1309,6 +1389,45 @@ img {
 }
 
 @media (max-width: 768px) {
+  .speaker-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    transform: none !important;
+    transition: none;
+  }
+
+  .speaker-card {
+    display: none;
+    flex: none;
+    width: auto;
+    min-height: 141px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .speaker-card.is-visible {
+    display: grid;
+  }
+
+  .speaker-card.is-entering {
+    animation: speaker-card-enter 0.5s ease both;
+  }
+
+  .speaker-photo {
+    width: 84px;
+    height: 112px;
+    margin: 0 auto 4px;
+  }
+
+  .speaker-card .speaker-name {
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+  }
+
   .nav-links {
     position: fixed;
     top: 70px;
@@ -1362,4 +1481,9 @@ img {
   .speaker-name, .leader-name, .comm-name, .contact-value {
     white-space: normal;
   }
+}
+
+@keyframes speaker-card-enter {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }

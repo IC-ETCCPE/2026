@@ -770,6 +770,86 @@ img {
   background: var(--sand-bg);
 }
 
+.speaker-carousel {
+  margin: 32px auto 0;
+}
+
+.speaker-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.speaker-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.6s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: transform;
+}
+
+.speaker-card {
+  box-sizing: border-box;
+  flex: 0 0 calc((100% - 72px) / 4);
+  min-width: 0;
+  padding: 12px;
+  background: var(--white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.speaker-photo {
+  width: 150px;
+  height: 200px;
+  margin: 0 auto 16px;
+  overflow: hidden;
+  border-radius: var(--radius-md);
+  background: #eaf3f4;
+}
+
+.speaker-photo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.speaker-card .speaker-name {
+  margin: 0 0 8px;
+  color: var(--navy-deep);
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.25;
+}
+
+.speaker-affiliation {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.speaker-pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+.speaker-page {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: #aab9bd;
+  cursor: pointer;
+}
+
+.speaker-page.is-active {
+  background: var(--teal-primary);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.16);
+}
+
 .tba-card {
   background: var(--white);
   border-radius: var(--radius-lg);
@@ -1319,6 +1399,45 @@ img {
 }
 
 @media (max-width: 768px) {
+  .speaker-track {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    transform: none !important;
+    transition: none;
+  }
+
+  .speaker-card {
+    display: none;
+    flex: none;
+    width: auto;
+    min-height: 141px;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    row-gap: 6px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .speaker-card.is-visible {
+    display: grid;
+  }
+
+  .speaker-card.is-entering {
+    animation: speaker-card-enter 0.5s ease both;
+  }
+
+  .speaker-photo {
+    width: 84px;
+    height: 112px;
+    margin: 0 auto 4px;
+  }
+
+  .speaker-card .speaker-name {
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+  }
+
   .nav-links {
     position: fixed;
     top: 70px;
@@ -1372,6 +1491,11 @@ img {
   .speaker-name, .leader-name, .comm-name, .contact-value {
     white-space: normal;
   }
+}
+
+@keyframes speaker-card-enter {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
 }
 
 </style>
@@ -1647,18 +1771,71 @@ img {
     </div>
   </section>
 
-  <!-- SPEAKERS SECTION (Requirement 1: To Be Announced Banner) -->
+  <!-- INVITED SPEAKERS SECTION -->
   <section class="section speakers" id="speakers">
     <div class="container">
       <div class="section-label center">Eminent Experts</div>
       <h2 class="section-heading center">Invited Speakers</h2>
 
-      <div class="tba-card reveal">
-        <span class="tba-badge">Speakers Announcement</span>
-        <h3 class="tba-title">To Be Announced</h3>
-        <p class="tba-desc">
-          The list of plenary, keynote, and invited speakers for IC-ETCPE 2026 will be announced soon. Please stay tuned for updates.
-        </p>
+      <div class="speaker-carousel reveal" aria-label="Invited speakers">
+        <div class="speaker-stage">
+          <div class="speaker-slide is-active" aria-label="Speakers 1 to 3 of 9">
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/Prof.%20Kaustubha%20Mohanty.jpg" alt="Prof. Kaustubha Mohanty"></div>
+              <h3 class="speaker-name">Prof. Kaustubha Mohanty</h3>
+              <p class="speaker-affiliation">IIT Guwahati, India</p>
+            </article>
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/Prof.%20Suddhasatwa%20Basu.jpg" alt="Prof. Sudhasatwa Basu"></div>
+              <h3 class="speaker-name">Prof. Sudhasatwa Basu</h3>
+              <p class="speaker-affiliation">IIT Delhi, India</p>
+            </article>
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/prof%20sonil%20nanda.jpg" alt="Prof. Sonil Nanda"></div>
+              <h3 class="speaker-name">Prof. Sonil Nanda</h3>
+              <p class="speaker-affiliation">Dalhousie University, Canada</p>
+            </article>
+          </div>
+          <div class="speaker-slide" aria-label="Speakers 4 to 6 of 9" aria-hidden="true" inert>
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/Prof%20Debasis%20Sarkar.png" alt="Prof. Debasis Sarkar"></div>
+              <h3 class="speaker-name">Prof. Debasis Sarkar</h3>
+              <p class="speaker-affiliation">IIT Kharagpur, India</p>
+            </article>
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/prof%20bablu%20mordina.jfif" alt="Dr. Babu Mordina"></div>
+              <h3 class="speaker-name">Dr. Babu Mordina</h3>
+              <p class="speaker-affiliation">Scientist, DRDO, DMSRDE Kanpur</p>
+            </article>
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/prof%20Sudhanshu%20Sharma.jpg" alt="Prof. Sudhanshu Sharma"></div>
+              <h3 class="speaker-name">Prof. Sudhanshu Sharma</h3>
+              <p class="speaker-affiliation">IIT Gandhinagar, India</p>
+            </article>
+          </div>
+          <div class="speaker-slide" aria-label="Speakers 7 to 9 of 9" aria-hidden="true" inert>
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/Prof%20Ankit%20Tyagi.jpeg" alt="Prof. Ankit Tyagi"></div>
+              <h3 class="speaker-name">Prof. Ankit Tyagi</h3>
+              <p class="speaker-affiliation">IIT Jammu, India</p>
+            </article>
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/Dr%20Pratik%20N%20Sheth.webp" alt="Prof. Pratik N. Sheth"></div>
+              <h3 class="speaker-name">Prof. Pratik N. Sheth</h3>
+              <p class="speaker-affiliation">BITS Pilani, India</p>
+            </article>
+            <article class="speaker-card">
+              <div class="speaker-photo"><img src="speakers%20images/Prof.Ejaz%20Ahmad.jpg" alt="Prof. Ejaz Ahmad"></div>
+              <h3 class="speaker-name">Prof. Ejaz Ahmad</h3>
+              <p class="speaker-affiliation">ISM Dhanbad, India</p>
+            </article>
+          </div>
+        </div>
+        <div class="speaker-pagination" role="group" aria-label="Choose speaker group">
+          <button class="speaker-page is-active" type="button" aria-label="Show speakers 1 to 3" aria-current="true"></button>
+          <button class="speaker-page" type="button" aria-label="Show speakers 4 to 6"></button>
+          <button class="speaker-page" type="button" aria-label="Show speakers 7 to 9"></button>
+        </div>
       </div>
 
     </div>
@@ -1987,6 +2164,86 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el => {
     revealObserver.observe(el);
   });
+
+  // 4. Invited Speaker Carousel
+  const speakerStage = document.querySelector('.speaker-stage');
+  const speakerSlides = Array.from(document.querySelectorAll('.speaker-slide'));
+  const speakerPages = Array.from(document.querySelectorAll('.speaker-page'));
+  if (speakerStage && speakerSlides.length && speakerPages.length === 3) {
+    const speakerCards = speakerSlides.flatMap(slide => Array.from(slide.querySelectorAll('.speaker-card')));
+    const speakerTrack = document.createElement('div');
+    speakerTrack.className = 'speaker-track';
+    speakerCards.forEach(card => speakerTrack.append(card));
+    speakerCards.slice(0, 4).forEach(card => {
+      const copy = card.cloneNode(true);
+      copy.setAttribute('aria-hidden', 'true');
+      copy.inert = true;
+      speakerTrack.append(copy);
+    });
+    speakerStage.replaceChildren(speakerTrack);
+
+    let currentPosition = 0;
+    let speakerResetTimer;
+
+    function showSpeakerPosition(position, animate = true) {
+      currentPosition = position;
+      const mobileLayout = window.matchMedia('(max-width: 768px)').matches;
+      if (mobileLayout) {
+        Array.from(speakerTrack.children).forEach((card, cardIndex) => {
+          const isVisible = cardIndex >= position && cardIndex < position + 4;
+          const wasVisible = card.classList.contains('is-visible');
+          card.classList.toggle('is-visible', isVisible);
+          card.classList.toggle('is-entering', isVisible && animate && !wasVisible);
+          card.setAttribute('aria-hidden', String(!isVisible));
+          card.inert = !isVisible;
+        });
+      } else {
+        const offset = speakerTrack.children[position].offsetLeft;
+        if (!animate) speakerTrack.style.transition = 'none';
+        speakerTrack.style.transform = `translateX(-${offset}px)`;
+        if (!animate) {
+          speakerTrack.offsetHeight;
+          speakerTrack.style.removeProperty('transition');
+        }
+
+        Array.from(speakerTrack.children).forEach((card, cardIndex) => {
+          const isVisible = cardIndex >= position && cardIndex < position + 4;
+          card.setAttribute('aria-hidden', String(!isVisible));
+          card.inert = !isVisible;
+        });
+      }
+
+      const activePage = Math.floor((position % speakerCards.length) / 3);
+      speakerPages.forEach((page, pageIndex) => {
+        const isActive = pageIndex === activePage;
+        page.classList.toggle('is-active', isActive);
+        if (isActive) page.setAttribute('aria-current', 'true');
+        else page.removeAttribute('aria-current');
+      });
+    }
+
+    function advanceSpeakerPosition() {
+      if (currentPosition === speakerCards.length - 1) {
+        showSpeakerPosition(speakerCards.length, true);
+        speakerResetTimer = window.setTimeout(() => showSpeakerPosition(0, false), 620);
+      } else {
+        showSpeakerPosition(currentPosition + 1);
+      }
+    }
+
+    showSpeakerPosition(0, false);
+    let speakerTimer = window.setInterval(advanceSpeakerPosition, 3000);
+    speakerPages.forEach((page, pageIndex) => {
+      page.addEventListener('click', () => {
+        window.clearTimeout(speakerResetTimer);
+        showSpeakerPosition(pageIndex * 3);
+        window.clearInterval(speakerTimer);
+        speakerTimer = window.setInterval(advanceSpeakerPosition, 3000);
+      });
+    });
+
+    window.addEventListener('resize', () => showSpeakerPosition(currentPosition, false));
+  }
 
   // 4. Live Countdown Timer to December 19, 2026
   const conferenceDate = new Date('2026-12-19T09:00:00+05:30').getTime();
