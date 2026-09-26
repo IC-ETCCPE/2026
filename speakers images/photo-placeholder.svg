@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 360" role="img" aria-labelledby="title description">
+  <title id="title">Speaker photo placeholder</title>
+  <desc id="description">A simple portrait silhouette placeholder for a speaker photo.</desc>
+  <rect width="480" height="360" fill="#eaf3f4"/>
+  <circle cx="240" cy="132" r="62" fill="#9bb9bd"/>
+  <path d="M112 360c8-88 58-132 128-132s120 44 128 132" fill="#9bb9bd"/>
+</svg>
