@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const speakerStage = document.querySelector('.speaker-stage');
   const speakerSlides = Array.from(document.querySelectorAll('.speaker-slide'));
   const speakerPages = Array.from(document.querySelectorAll('.speaker-page'));
-  if (speakerStage && speakerSlides.length && speakerPages.length === 3) {
+  if (speakerStage && speakerSlides.length && speakerPages.length > 0) {
     const speakerCards = speakerSlides.flatMap(slide => Array.from(slide.querySelectorAll('.speaker-card')));
     const speakerTrack = document.createElement('div');
     speakerTrack.className = 'speaker-track';
@@ -249,4 +249,120 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     animate();
   }
+
+  // 5. Interactive Key Attractions Popup Modal
+  const ATTRACTIONS_DATA = {
+    mehrangarh: {
+      title: "Mehrangarh Fort",
+      tag: "Historic Fort · 15th Century",
+      image: "Jodhpur/mehrangarh%20fort.jpg",
+      distance: "Distance: ~26 km from IIT Jodhpur Campus",
+      history: "Founded in 1459 AD by Rao Jodha, the 15th chief of the Rathore clan, Mehrangarh Fort stands majestically atop a 410-foot-high perpendicular cliff. Spanning over 1,200 acres, it is one of the largest and best-preserved fortresses in India. Within its thick 36-meter-high walls lie opulent palaces including Phool Mahal (Flower Palace), Sheesh Mahal (Mirror Palace), and Moti Mahal (Pearl Palace). The fort museum houses an unmatched collection of royal palanquins, howdahs, miniature paintings, musical instruments, and historic weaponry."
+    },
+    jaswant: {
+      title: "Jaswant Thada",
+      tag: "Royal Cenotaph · Marble Marvel",
+      image: "Jodhpur/Jaswant%20Thada.jpg",
+      distance: "Distance: ~25 km from IIT Jodhpur Campus",
+      history: "Built in 1899 AD by Maharaja Sardar Singh in loving memory of his father Maharaja Jaswant Singh II, Jaswant Thada is celebrated as the 'Taj Mahal of Marwar'. The monument is built out of extremely thin, intricately carved sheets of polished white Makrana marble that filter sunlight to glow with a translucent golden warmth. The complex features a tiered garden, carved gazebos, a serene lake, and portraits of Marwar rulers dating back to the 13th century."
+    },
+    umaid: {
+      title: "Umaid Bhawan Palace",
+      tag: "Royal Palace · Art Deco",
+      image: "Jodhpur/Umaid%20Bhawan%20Place.jpg",
+      distance: "Distance: ~22 km from IIT Jodhpur Campus",
+      history: "Constructed between 1928 and 1943 under the reign of Maharaja Umaid Singh, Umaid Bhawan Palace is one of the world's largest private residences. Built using golden-yellow Chittar sandstone without mortar, it was commissioned as a large-scale relief project to employ thousands of citizens during a severe drought. Designed by renowned British architect Henry Vaughan Lanchester, it merges Beaux-Arts, Art Deco, and classical Hindu architectural elements across 347 rooms."
+    },
+    mandore: {
+      title: "Mandore Gardens",
+      tag: "Ancient Capital · Cenotaphs",
+      image: "Jodhpur/Mandore%20Gardan.jpg",
+      distance: "Distance: ~16 km from IIT Jodhpur Campus",
+      history: "Mandore was the ancient capital of the Parihar Rajputs and Marwar state before Rao Jodha relocated the seat of power to Mehrangarh Fort in 1459. Located just 16 km from IIT Jodhpur, Mandore Gardens is famed for its grand red sandstone devals (cenotaphs) built in the style of Hindu temples rather than traditional umbrella-shaped chhatris. The garden complex features the Hall of Heroes containing 16 statues carved out of single rocks and historic ruined fortifications on high rocky ridges."
+    }
+  };
+
+  const modalBackdrop = document.getElementById('attractionModal');
+  const modalImg = document.getElementById('modalAttractionImg');
+  const modalTag = document.getElementById('modalAttractionTag');
+  const modalTitle = document.getElementById('modalAttractionTitle');
+  const modalDistance = document.getElementById('modalAttractionDistance');
+  const modalHistory = document.getElementById('modalAttractionHistory');
+  const modalCloseBtn = document.getElementById('modalCloseBtn');
+  const modalDoneBtn = document.getElementById('modalDoneBtn');
+
+  function openAttractionModal(attractionKey) {
+    const data = ATTRACTIONS_DATA[attractionKey];
+    if (!data || !modalBackdrop) return;
+
+    modalImg.src = data.image;
+    modalImg.alt = data.title;
+    modalTag.textContent = data.tag;
+    modalTitle.textContent = data.title;
+    modalDistance.textContent = data.distance;
+    modalHistory.textContent = data.history;
+
+    modalBackdrop.classList.add('open');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function openCustomNotification(title, tag, message) {
+    if (!modalBackdrop) return;
+    modalImg.src = "Background%20images/image%20(3).png";
+    modalImg.alt = title;
+    modalTag.textContent = tag;
+    modalTitle.textContent = title;
+    modalDistance.textContent = "IC-ETCPE 2026 Announcement";
+    modalHistory.textContent = message;
+
+    modalBackdrop.classList.add('open');
+    modalBackdrop.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAttractionModal() {
+    if (!modalBackdrop) return;
+    modalBackdrop.classList.remove('open');
+    modalBackdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.attraction-card[data-attraction]').forEach(card => {
+    const key = card.getAttribute('data-attraction');
+    card.addEventListener('click', () => openAttractionModal(key));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        openAttractionModal(key);
+      }
+    });
+  });
+
+  // Registration Button Disabled Alert Listener
+  const regFormBtn = document.getElementById('regFormBtn');
+  if (regFormBtn) {
+    regFormBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      openCustomNotification(
+        "Registration Starting Soon!",
+        "Online Registration Portal",
+        "Online registration for IC-ETCPE 2026 will open shortly. Payment and registration form links are currently being updated. Please check back soon for portal activation!"
+      );
+    });
+  }
+
+  if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAttractionModal);
+  if (modalDoneBtn) modalDoneBtn.addEventListener('click', closeAttractionModal);
+  if (modalBackdrop) {
+    modalBackdrop.addEventListener('click', (e) => {
+      if (e.target === modalBackdrop) closeAttractionModal();
+    });
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalBackdrop && modalBackdrop.classList.contains('open')) {
+      closeAttractionModal();
+    }
+  });
 });
