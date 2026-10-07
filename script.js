@@ -339,19 +339,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Registration Button Disabled Alert Listener
-  const regFormBtn = document.getElementById('regFormBtn');
-  if (regFormBtn) {
-    regFormBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      openCustomNotification(
-        "Registration Starting Soon!",
-        "Online Registration Portal",
-        "Online registration for IC-ETCPE 2026 will open shortly. Payment and registration form links are currently being updated. Please check back soon for portal activation!"
-      );
-    });
-  }
-
   if (modalCloseBtn) modalCloseBtn.addEventListener('click', closeAttractionModal);
   if (modalDoneBtn) modalDoneBtn.addEventListener('click', closeAttractionModal);
   if (modalBackdrop) {
@@ -365,4 +352,64 @@ document.addEventListener('DOMContentLoaded', () => {
       closeAttractionModal();
     }
   });
+
+  // 6. Department Photos Slideshow Auto-Rotation (3s per slide)
+  const deptSlides = Array.from(document.querySelectorAll('.dept-slide'));
+  const deptDots = Array.from(document.querySelectorAll('.dept-dot'));
+  const deptPrevBtn = document.getElementById('deptSlidePrev');
+  const deptNextBtn = document.getElementById('deptSlideNext');
+
+  if (deptSlides.length > 0) {
+    let currentDeptSlide = 0;
+    let deptSlideTimer;
+
+    function showDeptSlide(index) {
+      currentDeptSlide = (index + deptSlides.length) % deptSlides.length;
+
+      deptSlides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === currentDeptSlide);
+      });
+
+      deptDots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentDeptSlide);
+      });
+    }
+
+    function nextDeptSlide() {
+      showDeptSlide(currentDeptSlide + 1);
+    }
+
+    function startDeptTimer() {
+      stopDeptTimer();
+      deptSlideTimer = setInterval(nextDeptSlide, 3000); // 3 seconds per photo
+    }
+
+    function stopDeptTimer() {
+      if (deptSlideTimer) clearInterval(deptSlideTimer);
+    }
+
+    if (deptNextBtn) {
+      deptNextBtn.addEventListener('click', () => {
+        nextDeptSlide();
+        startDeptTimer();
+      });
+    }
+
+    if (deptPrevBtn) {
+      deptPrevBtn.addEventListener('click', () => {
+        showDeptSlide(currentDeptSlide - 1);
+        startDeptTimer();
+      });
+    }
+
+    deptDots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        showDeptSlide(i);
+        startDeptTimer();
+      });
+    });
+
+    // Start auto slideshow
+    startDeptTimer();
+  }
 });
