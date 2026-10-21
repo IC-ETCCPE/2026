@@ -32,6 +32,144 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // ========================================================
+  // SINGLE SECTION / HEADER-AT-A-TIME VIEW SWITCHER
+  // (Mimics ICEMD site where clicking a nav item shows only that section)
+  // ========================================================
+  const SECTION_MAP = {
+    'home': ['hero', 'about'],
+    'hero': ['hero', 'about'],
+    'about': ['about'],
+    'themes': ['themes'],
+    'dates': ['dates'],
+    'speakers': ['speakers'],
+    'committee': ['committee'],
+    'comm-international': ['committee'],
+    'comm-national': ['committee'],
+    'comm-core': ['committee'],
+    'comm-local': ['committee'],
+    'comm-website': ['committee'],
+    'abstract': ['abstract'],
+    'registration': ['registration'],
+    'sponsorship': ['sponsorship'],
+    'programme': ['programme'],
+    'campus': ['campus'],
+    'jodhpur': ['jodhpur', 'dept-slideshow'],
+    'contact': ['contact']
+  };
+
+  const ALL_SECTIONS = [
+    'hero',
+    'about',
+    'themes',
+    'dates',
+    'programme',
+    'speakers',
+    'committee',
+    'abstract',
+    'registration',
+    'sponsorship',
+    'campus',
+    'jodhpur',
+    'dept-slideshow',
+    'contact'
+  ];
+
+  function showSection(targetKey, scrollSubId = null) {
+    const cleanKey = (targetKey || 'home').toLowerCase().replace(/^#/, '');
+    const activeSectionIds = SECTION_MAP[cleanKey] || ['hero', 'about'];
+
+    // Toggle display of each section
+    ALL_SECTIONS.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      if (activeSectionIds.includes(id)) {
+        el.classList.remove('is-section-hidden');
+        el.classList.add('is-active-section');
+        // Ensure reveal elements in the activated section are shown immediately
+        el.querySelectorAll('.reveal').forEach(r => r.classList.add('visible'));
+      } else {
+        el.classList.add('is-section-hidden');
+        el.classList.remove('is-active-section');
+      }
+    });
+
+    const countdownSection = document.querySelector('.countdown-section');
+    const countdownHost = document.getElementById(activeSectionIds[activeSectionIds.length - 1]);
+    document.querySelectorAll('.countdown-host').forEach(el => {
+      el.classList.remove('countdown-host');
+    });
+    if (countdownSection && countdownHost) {
+      countdownHost.appendChild(countdownSection);
+      countdownHost.classList.add('countdown-host');
+    }
+
+    // Update active nav links
+    const allNavLinks = document.querySelectorAll('.nav-links a');
+    allNavLinks.forEach(link => {
+      link.classList.remove('active');
+    });
+
+    // Highlight the active parent link
+    let activeHref = '#' + cleanKey;
+    if (cleanKey.startsWith('comm-')) {
+      activeHref = '#committee';
+      const subLink = document.querySelector(`.dropdown-menu a[href="#${cleanKey}"]`);
+      if (subLink) subLink.classList.add('active');
+    } else if (cleanKey === 'hero') {
+      activeHref = '#home';
+    }
+
+    const currentNavLink = document.querySelector(`.nav-links a[href="${activeHref}"]`);
+    if (currentNavLink) {
+      currentNavLink.classList.add('active');
+    }
+
+    // Scroll to subsection or top
+    const scrollToId = scrollSubId || (cleanKey.startsWith('comm-') ? cleanKey : null);
+    if (scrollToId) {
+      const subEl = document.getElementById(scrollToId);
+      if (subEl) {
+        setTimeout(() => {
+          subEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 80);
+      }
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // Handle in-page navigation links
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const href = link.getAttribute('href');
+    if (!href || href === '#') return;
+    const targetKey = href.replace(/^#/, '');
+
+    if (SECTION_MAP[targetKey]) {
+      e.preventDefault();
+      history.pushState(null, '', href);
+      showSection(targetKey);
+
+      // Close mobile drawer if open
+      if (navLinks && navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        if (hamburger) hamburger.classList.remove('active');
+      }
+    }
+  });
+
+  // Handle browser back / forward buttons
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.replace(/^#/, '');
+    showSection(hash || 'home');
+  });
+
+  // Activate initial section based on URL hash or default to home
+  const initialHash = window.location.hash.replace(/^#/, '');
+  showSection(initialHash || 'home');
+
   // 3. Scroll Reveal Animations (Intersection Observer)
   const observerOptions = {
     threshold: 0.1,

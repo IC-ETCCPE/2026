@@ -1,0 +1,4770 @@
+/* =========================
+   RESET + BASE
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    overflow-x: hidden;
+    background: #ffffff;
+    color: #2c3e50;
+
+    /* Prevent fixed navbar from overlapping content */
+    padding-top: 60px;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 9999;
+    padding: 12px 0;
+    transition: all 0.3s ease;
+    background: transparent;
+}
+
+.navbar.scrolled {
+    background: linear-gradient(90deg, #e38b3d, #2c87a8);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+
+.navbar-brand {
+    color: #fff !important;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.navbar-brand img {
+    height: 30px;
+    width: auto;
+}
+
+/* NAV LINKS */
+.navbar-nav .nav-link {
+    color: #fff !important;
+    margin-left: 8px;          /* Reduced from 12px */
+    padding: 8px 10px;         /* Reduced horizontal padding */
+    font-size: 0.95rem;        /* Smaller font */
+    white-space: nowrap;       /* Prevents "ABSTRACT CALL" from wrapping */
+    border-radius: 6px;
+    transition: all 0.25s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #f4d03f !important;
+    background: rgba(255,255,255,0.08);
+}
+
+/* ACTIVE NAV LINK */
+.navbar-nav .nav-link.active {
+    color: #f4d03f !important;
+    background: rgba(255,255,255,0.15);
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+.dropdown-menu {
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 8px;
+}
+
+.dropdown-item {
+    border-radius: 6px;
+    padding: 8px 12px;
+    transition: 0.2s;
+}
+
+.dropdown-item:hover {
+    background: #f4d03f;
+    color: #000;
+}
+
+/* =========================
+   HERO SECTION  420px image default
+========================= */
+.hero-section {
+    height: 420px;
+    background: url('../img/IITJ_flag.jpg') center/cover no-repeat;
+    position: relative;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.hero-content {
+    position: absolute;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.hero-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.hero-box {
+    display: inline-block;
+    text-align: center;
+
+    background: rgba(0, 0, 0, 0.30);
+
+    /* Glass effect */
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+
+    padding: 18px 40px;
+    border-radius: 12px;
+
+    max-width: 900px;
+    width: 74%;
+}
+
+/* Date */
+.date-line {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 12px;
+}
+
+/* Conference Title */
+.hero-content h1 {
+    color: #fff;
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.3;
+    margin: 0 0 15px 0;
+    letter-spacing: 0.3px;
+}
+
+/* Location */
+.hero-content h4 {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 0;
+}
+
+/* DATE BOX (if used elsewhere) */
+.date-box {
+    background: #f4d03f;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/*==========================================
+  Live Location Conference Hall
+==========================================*/
+
+.location-alert{
+
+    background:#eefaf2;
+
+    border:1px solid #eefaf2;
+
+    color:#1d6b42;
+
+    border-radius:7px;
+
+}
+
+/*==========================================
+  ABOUT CONFERENCE IMAGE SCROLLER
+==========================================*/
+
+.conf-gallery{
+    position: relative;
+    width:100%;
+    overflow:hidden;
+    margin-top:25px;
+    padding:12px 0;
+    background:#f8f9fa;
+    border-radius:10px;
+}
+
+/* Left fade */
+.conf-gallery::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:45px;
+    height:100%;
+    background:linear-gradient(to right,#f8f9fa 0%,transparent 100%);
+    z-index:2;
+}
+
+/* Right fade */
+.conf-gallery::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:0;
+    width:45px;
+    height:100%;
+    background:linear-gradient(to left,#f8f9fa 0%,transparent 100%);
+    z-index:2;
+}
+
+.conf-track{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    width:max-content;
+    animation:confScroll 70s linear infinite;
+}
+
+.conf-track img{
+    width:640px;
+    height:360px;
+    object-fit:cover;
+    object-position:center;
+    flex-shrink:0;
+
+    border-radius:10px;
+    border:2px solid #ffffff;
+    box-shadow:0 5px 15px rgba(0,0,0,.18);
+
+    transition:transform .35s ease;
+}
+
+.conf-track img:hover{
+    transform:scale(1.04);
+}
+
+.conf-gallery:hover .conf-track{
+    animation-play-state:paused;
+}
+
+@keyframes confScroll{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/*==========================================
+  IIT JODHPUR IMAGE SCROLLER
+==========================================*/
+
+.iit-gallery{
+    position:relative;
+    width:100%;
+    overflow:hidden;
+    margin-top:25px;
+    padding:12px 0;
+    background:#f8f9fa;
+    border-radius:10px;
+}
+
+/* Left fade */
+.iit-gallery::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    width:45px;
+    height:100%;
+    background:linear-gradient(to right,#f8f9fa 0%,transparent 100%);
+    z-index:2;
+}
+
+/* Right fade */
+.iit-gallery::after{
+    content:"";
+    position:absolute;
+    right:0;
+    top:0;
+    width:45px;
+    height:100%;
+    background:linear-gradient(to left,#f8f9fa 0%,transparent 100%);
+    z-index:2;
+}
+
+.iit-track{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    width:max-content;
+    animation:iitScroll 70s linear infinite;
+}
+
+.iit-track img{
+    width:640px;
+    height:360px;
+    object-fit:cover;
+    object-position:center;
+    flex-shrink:0;
+
+    border-radius:10px;
+    border:3px solid #ffffff;
+    box-shadow:0 5px 15px rgba(0,0,0,.18);
+
+    transition:transform .35s ease;
+}
+
+.iit-track img:hover{
+    transform:scale(1.04);
+}
+
+.iit-gallery:hover .iit-track{
+    animation-play-state:paused;
+}
+
+@keyframes iitScroll{
+    from{
+        transform:translateX(0);
+    }
+    to{
+        transform:translateX(-50%);
+    }
+}
+
+/* =========================
+   About section small image scroll
+========================= */
+
+.scroll-gallery{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin-top: 25px;
+    padding: 12px 0;
+    background: #f8f9fa;
+    border-radius: 10px;
+}
+
+/* Left fade */
+.scroll-gallery::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 45px;
+    height: 100%;
+    background: linear-gradient(to right, #f8f9fa 0%, transparent 100%);
+    z-index: 2;
+}
+
+/* Right fade */
+.scroll-gallery::after{
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
+    height: 100%;
+    background: linear-gradient(to left, #f8f9fa 0%, transparent 100%);
+    z-index: 2;
+}
+
+.scroll-track{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: max-content;
+    animation: scrollLeft 100s linear infinite;
+}
+
+.scroll-track img{
+    width: 160px;
+    height: 155px;
+    object-fit: cover;
+    object-position: center;
+    margin: 2px;
+    border-radius: 8px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.scroll-track img:hover{
+    transform: scale(1.05);
+}
+
+.scroll-gallery:hover .scroll-track{
+    animation-play-state: paused;
+}
+
+@keyframes scrollLeft{
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-50%);
+    }
+}
+
+/* =========================
+   NEWS TICKER
+========================= */
+.news-ticker {
+    background: #c8843d;
+    color: #fff;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.ticker-track {
+    display: flex;
+    gap: 60px;
+    animation: ticker 22s linear infinite;
+}
+
+@keyframes ticker {
+    from { transform: translateX(100%); }
+    to { transform: translateX(-100%); }
+}
+
+/* =========================
+   ABOUT SECTION
+========================= */
+.about-section {
+    background: #f9f9f9;
+}
+
+.about-img {
+    border-radius: 12px;
+}
+
+/* =========================
+   SPEAKER SECTION
+========================= */
+.speaker-section {
+    background: #fff;
+    padding-top: 30px;
+}
+
+.speaker-box {
+    text-align: center;
+    padding: 10px;
+}
+
+.speaker-box img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    transition: 0.3s;
+}
+
+
+
+.speaker-box img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+}
+
+/* .speaker-box h6 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.speaker-box p {
+    font-size: 12px;
+    color: #666;
+} */
+
+
+
+
+
+/* Speaker Name */
+.speaker-box h6 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1f2937;
+    line-height: 1.3;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+
+/* Speaker Designation */
+.speaker-box .speaker-role {
+    font-size: 15px;
+    font-weight: 500;
+    color: #6b7280;
+    margin-bottom: 6px;
+}
+
+/* Speaker Organization */
+.speaker-box p {
+    font-size: 16px;
+    font-weight: 500;
+    color: #374151;
+    line-height: 1.4;
+    margin-bottom: 0;
+}
+
+
+
+
+
+
+/* =========================
+   KEY DATES
+========================= */
+.key-card-simple {
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    background: #ffffff;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.key-card-simple:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* =========================
+   THEMES
+========================= */
+
+.themes-section{
+    padding:70px 0;
+    background:#f9f9f9;
+}
+
+/* Heading */
+
+.themes-title{
+    font-size:40px;
+    font-weight:700;
+    color:#23364d;
+    margin-bottom:15px;
+}
+
+.theme-highlight{
+    color:#f0a307;
+}
+
+/* Subtitle */
+
+.themes-subtitle{
+    font-size:22px;
+    color:#6c757d;
+    max-width:1100px;
+    margin:0 auto 10px;
+    line-height:1.6;
+}
+
+/* Cards */
+
+.theme-card{
+    background:#fff;
+    padding:20px;
+    border-radius:10px;
+    height:100%;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    transition:all .3s ease;
+}
+
+.theme-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 24px rgba(0,0,0,0.12);
+}
+
+/* Accordion Heading */
+
+.accordion-button{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    padding:22px 25px;
+
+}
+
+/* Body */
+
+.accordion-body{
+
+    font-size:18px;
+
+    line-height:1.8;
+
+}
+
+/* Main Bullet */
+
+.accordion-body > ul > li{
+
+    margin-bottom:10px;
+
+}
+
+/* Nested Bullet */
+
+.accordion-body ul ul li{
+
+    font-size:18px;
+
+}
+
+/* Tablet */
+
+@media (max-width:992px){
+
+.themes-title{
+    font-size:34px;
+}
+
+.themes-subtitle{
+    font-size:20px;
+}
+
+}
+
+/* Mobile */
+
+@media (max-width:768px){
+
+.themes-section{
+    padding:50px 0;
+}
+
+.themes-title{
+    font-size:30px;
+}
+
+.themes-subtitle{
+    font-size:17px;
+    margin-bottom:30px;
+}
+
+}
+
+/* =========================
+   BALANCED TEXT SPACING
+========================= */
+
+/* Clean balanced spacing (not too tight) */
+.committee-main-card p {
+    margin-top: 0;
+    margin-bottom: 3px;     /* balanced gap */
+    line-height: 1.25;      /* readable + compact */
+}
+
+/* Role text */
+.role {
+    margin-top: 3px;
+    margin-bottom: 2px;
+    line-height: 1.2;
+}
+
+/* Name */
+.name {
+    margin-bottom: 2px;
+}
+
+/* =========================
+   AUTO TEXT BALANCING
+========================= */
+
+/* Prevent uneven height due to long text */
+.role {
+    min-height: 18px;   /* same height for all */
+}
+
+/* Keep names aligned */
+.name {
+    min-height: 10px;
+}
+
+
+
+
+/* =========================
+   MAIN CARD (RECTANGULAR)
+========================= */
+.committee-main-card {
+    border-radius: 0;   /* rectangular */
+    border: none;
+    background: #ffffff;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+    transition: 0.3s ease;
+}
+
+/* Hover effect 
+.committee-main-card:hover {
+    transform: translateY(-4px);
+}
+*/
+/* =========================
+   HEADER
+========================= */
+.committee-main-card .card-header {
+    background: linear-gradient(90deg, #c8843d, #2c87a8);
+    color: #fff;
+
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+
+    padding: 12px;
+    border-radius: 0;
+}
+
+/* =========================
+   BODY
+========================= */
+.committee-main-card .card-body {
+    padding: 15px 5px;
+    background: #ffffff;
+}
+
+/* =========================
+   IMAGES
+========================= */
+
+/* =========================
+   COMMITTEE IMAGE HIERARCHY
+========================= */
+
+/* Director Image (Largest) */
+.committee-img-director {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* Deputy Director + Advisor */
+.committee-img-lead {
+    width: 170px;
+    height: 170px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* Organizing Team */
+.committee-img-team {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+/* Hover Effect */
+.committee-img-director:hover,
+.committee-img-lead:hover,
+.committee-img-team:hover {
+    transform: scale(1.04);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .committee-img-director {
+        width: 180px;
+        height: 180px;
+    }
+
+    .committee-img-lead {
+        width: 140px;
+        height: 140px;
+    }
+
+    .committee-img-team {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+/*.committee-img {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+
+    border-radius: 6px;    slight professional curve 
+    transition: 0.3s;
+}*/
+
+/* Hover zoom */
+.committee-img:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   TEXT STYLING
+========================= */
+.role {
+    font-weight: 600;
+    font-size: 13px;
+    color: #555;
+    margin-top: 8px;
+}
+
+.name {
+    color: #0d6efd;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* Spacing between rows */
+.committee-main-card .row {
+    margin-bottom: 25px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    .committee-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .committee-main-card .card-body {
+        padding: 25px 10px;
+    }
+}
+
+
+/* =========================================
+   ADVISORY COMMITTEE (FINAL CLEAN STYLE)
+========================================= */
+
+.advisory-item {
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    background: #f5f7fa;
+
+    padding: 12px;
+
+    border-radius: 10px;
+
+    margin-bottom: 14px;
+
+    transition: 0.3s ease;
+}
+
+/* Hover */
+.advisory-item:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Image */
+.advisory-item img {
+    width: 74px;
+    height: 74px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    flex-shrink: 0;
+}
+
+/* Name */
+.advisory-item b {
+    font-size: 15px;
+
+    color: #003366;
+
+    font-weight: 700;
+}
+
+/* Details */
+.advisory-item div {
+    font-size: 13px;
+
+    line-height: 1.45;
+
+    color: #333;
+}
+
+/* Card body spacing */
+#internationaladvisory .card-body,
+#nationaladvisory .card-body {
+    padding: 25px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+
+    .advisory-item {
+        align-items: flex-start;
+    }
+
+    .advisory-item img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .advisory-item div {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================
+   SPEAKER SCROLL ANIMATION (FIXED)
+========================= */
+
+@keyframes speakerScroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* Ensure smooth continuous loop */
+.speaker-scroll {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+
+    animation-name: speakerScroll;
+    animation-duration: 30s;   /* slower */
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    will-change: transform;
+}
+
+.speaker-scroll:hover {
+    animation-play-state: paused !important;
+}
+
+/* Prevent full page stretch */
+.speaker-scroll-wrapper {
+    max-width: 900px;
+    margin: 40px auto;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.speaker-scroll .speaker-box {
+    min-width: 220px;
+    padding: 15px;
+}
+
+/* OPTIONAL  ---*/
+.speaker-scroll-wrapper::before,
+.speaker-scroll-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 60px;
+    height: 100%;
+    z-index: 2;
+}
+
+.speaker-scroll-wrapper::before {
+    left: 0;
+    background: linear-gradient(to right, #fff, transparent);
+}
+
+.speaker-scroll-wrapper::after {
+    right: 0;
+    background: linear-gradient(to left, #fff, transparent);
+}
+
+
+
+
+
+
+
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-warning {
+    background: #f4d03f;
+    border: none;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #2c87a8, #1f5f7a);
+    border: none;
+}
+
+/* =========================
+   BACK TO TOP
+========================= */
+#topBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: 0.3s;
+}
+
+#topBtn.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
+
+/*=========================================
+            COUNTDOWN PANEL
+=========================================*/
+
+.countdown-section{
+
+    margin-bottom:15px;
+
+}
+
+.countdown-panel{
+
+    background:linear-gradient(90deg,#2c87a8,#e38b3d);
+
+    border-radius:7px;
+
+    padding:22px 26px;
+
+    width:100%;
+
+    max-width:1290px;
+
+    margin:auto;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.18);
+
+}
+
+/* Layout */
+
+.countdown-content{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:10px;
+
+}
+
+/* Left */
+
+.countdown-info{
+
+    min-width:220px;
+
+}
+
+.countdown-panel-title{
+
+    color:#ffe100;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    text-transform:uppercase;
+
+    letter-spacing:1px;
+
+    margin-bottom:8px;
+
+}
+
+.countdown-panel-date{
+
+    color:#fff;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    line-height:1.2;
+
+}
+
+/* Right */
+
+.countdown-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(4,1fr);
+
+    gap:10px;
+
+}
+
+/* Boxes */
+
+.countdown-box{
+
+    background:#fffdf6;
+
+    border:2px solid #e6c56a;
+
+    border-radius:12px;
+
+    width:70px;
+
+    height:70px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+}
+
+/* Numbers */
+
+.countdown-value{
+
+    font-size:30px;
+
+    font-weight:700;
+
+    color:#980000;
+
+    line-height:1;
+
+}
+
+/* Labels */
+
+.countdown-label{
+
+    margin-top:10px;
+
+    color:#0b356c;
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.5px;
+
+}
+
+/*=================================================
+                TABLET
+=================================================*/
+
+@media (max-width:992px){
+
+    .countdown-panel{
+
+        padding:18px;
+
+        border-radius:8px;
+
+    }
+
+    .countdown-content{
+
+        flex-direction:column;
+
+        align-items:center;
+
+        text-align:center;
+
+        gap:15px;
+
+    }
+
+    .countdown-info{
+
+        min-width:auto;
+
+    }
+
+    .countdown-panel-title{
+
+        font-size:15px;
+
+        margin-bottom:5px;
+
+    }
+
+    .countdown-panel-date{
+
+        font-size:18px;
+
+    }
+
+    .countdown-grid{
+
+        grid-template-columns:repeat(4,1fr);
+
+        gap:8px;
+
+    }
+
+    .countdown-box{
+
+        width:68px;
+
+        height:68px;
+
+    }
+
+    .countdown-value{
+
+        font-size:28px;
+
+    }
+
+    .countdown-label{
+
+        font-size:11px;
+
+        margin-top:5px;
+
+    }
+
+}
+
+
+/*=================================================
+                MOBILE
+=================================================*/
+
+@media (max-width:768px){
+
+    .countdown-panel{
+
+        padding:15px;
+
+        border-radius:8px;
+
+    }
+
+    .countdown-content{
+
+        flex-direction:column;
+
+        gap:12px;
+
+        text-align:center;
+
+    }
+
+    .countdown-panel-title{
+
+        font-size:14px;
+
+        margin-bottom:4px;
+
+    }
+
+    .countdown-panel-date{
+
+        font-size:17px;
+
+    }
+
+    .countdown-grid{
+
+        display:grid;
+
+        grid-template-columns:repeat(4,1fr);
+
+        gap:6px;
+
+        width:100%;
+
+    }
+
+    .countdown-box{
+
+        width:auto;
+
+        height:60px;
+
+        padding:6px;
+
+        border-radius:8px;
+
+    }
+
+    .countdown-value{
+
+        font-size:24px;
+
+    }
+
+    .countdown-label{
+
+        font-size:10px;
+
+        margin-top:3px;
+
+        letter-spacing:0;
+
+    }
+
+}
+
+
+/*=================================================
+            SMALL MOBILE
+=================================================*/
+
+@media (max-width:480px){
+
+    .countdown-panel{
+
+        padding:12px;
+
+    }
+
+    .countdown-panel-title{
+
+        font-size:13px;
+
+    }
+
+    .countdown-panel-date{
+
+        font-size:15px;
+
+    }
+
+    .countdown-grid{
+
+        gap:5px;
+
+    }
+
+    .countdown-box{
+
+        height:54px;
+
+        border-radius:6px;
+
+    }
+
+    .countdown-value{
+
+        font-size:20px;
+
+    }
+
+    .countdown-label{
+
+        font-size:8px;
+
+        margin-top:2px;
+
+    }
+
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer-gradient {
+    background: linear-gradient(90deg, #e38b3d, #2c87a8);
+    color: #fff;
+    padding: 15px 0;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+
+    .hero-section {
+        height: 320px;
+    }
+
+    .hero-content h1 {
+        font-size: 22px;
+    }
+
+    .navbar-nav {
+        background: rgba(0,0,0,0.4);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        padding: 10px;
+    }
+}
+
+
+/*=================================================
+              REGISTRATION PAGE
+=================================================*/
+
+.registration-section {
+    padding: 60px 0;
+    background: #ffffff;
+}
+
+
+/*=================================================
+                    HEADING
+=================================================*/
+
+.registration-title {
+    font-size: 40px;
+    font-weight: 700;
+    color: #23364d;
+    margin-bottom: 15px;
+}
+
+.journal-highlight {
+    color: #f0a307;
+}
+
+
+/*=================================================
+                 TABLE WRAPPER
+=================================================*/
+
+.registration-table-wrapper {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/*=================================================
+                      TABLE
+=================================================*/
+
+.registration-table {
+    width: 100%;
+    margin-bottom: 0;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+
+/*=================================================
+                 COLUMN WIDTHS
+=================================================*/
+
+/*
+   Category of Delegate = 25%
+
+   National Before      = 18.75%
+   National After       = 18.75%
+   International Before = 18.75%
+   International After  = 18.75%
+
+   Total = 100%
+*/
+
+/* First column */
+
+.registration-table tbody td:nth-child(1) {
+    width: 25%;
+}
+
+/* Four fee columns */
+
+.registration-table tbody td:nth-child(2),
+.registration-table tbody td:nth-child(3),
+.registration-table tbody td:nth-child(4),
+.registration-table tbody td:nth-child(5) {
+    width: 18.75%;
+}
+
+
+/*=================================================
+                     HEADER
+=================================================*/
+
+.registration-table thead {
+    background: #cfe2ff;
+}
+
+.registration-table thead th {
+    background: #cfe2ff;
+    color: #000000;
+    font-size: 20px;
+    font-weight: 700;
+    padding: 18px 10px;
+    border: 1px solid #b6c8e6;
+    text-align: center;
+    vertical-align: middle;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    line-height: 1.25;
+}
+
+
+/*=================================================
+               MAIN HEADER ROW
+=================================================*/
+
+.registration-table thead tr:first-child th {
+    font-size: 21px;
+    font-weight: 700;
+    padding: 18px 10px;
+    line-height: 1.25;
+}
+
+
+/*=================================================
+             SECOND HEADER ROW
+=================================================*/
+
+.registration-table thead tr:nth-child(2) th {
+    font-size: 19px;
+    font-weight: 600;
+    padding: 13px 7px;
+    line-height: 1.35;
+}
+
+
+/*=================================================
+              THIRD HEADER ROW
+=================================================*/
+
+.registration-table thead tr:nth-child(3) th {
+    font-size: 19px;
+    font-weight: 600;
+    padding: 18px 10px;
+    line-height: 1.25;
+}
+
+
+/*=================================================
+                    BODY
+=================================================*/
+
+.registration-table tbody td {
+    background: #ffffff;
+    color: #222222;
+    font-size: 20px;
+    padding: 18px 10px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+    line-height: 1.3;
+}
+
+
+/*=================================================
+                ALTERNATING ROWS
+=================================================*/
+
+.registration-table tbody tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+
+/*=================================================
+                     HOVER
+=================================================*/
+
+.registration-table tbody tr:hover td {
+    background: #fff5ea;
+}
+
+
+/*=================================================
+                     TABLET
+=================================================*/
+
+@media (max-width: 992px) {
+
+    .registration-section {
+        padding: 60px 0;
+    }
+
+    .registration-title {
+        font-size: 34px;
+    }
+
+    .registration-table-wrapper {
+        border-radius: 12px;
+    }
+
+    .registration-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+
+    /*---------------------------------------------
+       TABLET COLUMN PROPORTIONS
+       Category = 25%
+       Other columns = 18.75%
+    ---------------------------------------------*/
+
+    .registration-table tbody td:nth-child(1) {
+        width: 25%;
+    }
+
+    .registration-table tbody td:nth-child(2),
+    .registration-table tbody td:nth-child(3),
+    .registration-table tbody td:nth-child(4),
+    .registration-table tbody td:nth-child(5) {
+        width: 18.75%;
+    }
+
+
+    /* Main header */
+
+    .registration-table thead tr:first-child th {
+        font-size: 17px;
+        padding: 16px 7px;
+        line-height: 1.25;
+    }
+
+
+    /* Second header */
+
+    .registration-table thead tr:nth-child(2) th {
+        font-size: 15px;
+        padding: 11px 5px;
+        line-height: 1.3;
+    }
+
+    /* Third header */
+
+    .registration-table thead tr:nth-child(3) th {
+        font-size: 15px;
+        padding: 11px 5px;
+        line-height: 1.3;
+    }
+
+
+    /* Body */
+
+    .registration-table tbody td {
+        font-size: 18px;
+        padding: 16px 7px;
+        line-height: 1.3;
+    }
+}
+
+
+/*=================================================
+                     MOBILE
+=================================================*/
+
+@media (max-width: 768px) {
+
+    .registration-section {
+        padding: 50px 0;
+    }
+
+    .registration-title {
+        font-size: 30px;
+    }
+
+
+    /*---------------------------------------------
+       HORIZONTAL SCROLLING
+    ---------------------------------------------*/
+
+    .registration-table-wrapper {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        -webkit-overflow-scrolling: touch;
+        border-radius: 10px;
+    }
+
+
+    /*
+       Keep table wide enough on mobile.
+
+       This prevents the five columns from becoming
+       too narrow and prevents header overlap.
+    */
+
+    .registration-table {
+        min-width: 760px;
+        width: 100%;
+        table-layout: fixed;
+    }
+
+
+    /*---------------------------------------------
+       MOBILE COLUMN PROPORTIONS
+    ---------------------------------------------*/
+
+    .registration-table tbody td:nth-child(1) {
+        width: 25%;
+    }
+
+    .registration-table tbody td:nth-child(2),
+    .registration-table tbody td:nth-child(3),
+    .registration-table tbody td:nth-child(4),
+    .registration-table tbody td:nth-child(5) {
+        width: 18.75%;
+    }
+
+
+/*---------------------------------------------
+       MAIN HEADER
+---------------------------------------------*/
+
+.registration-table thead tr:first-child th {
+    font-size: 16px;
+    padding: 14px 6px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+/*---------------------------------------------
+       BEFORE / AFTER HEADER
+---------------------------------------------*/
+
+.registration-table thead tr:nth-child(2) th {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 5px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+/*---------------------------------------------
+       NATIONAL / INTERNATIONAL HEADER
+---------------------------------------------*/
+
+.registration-table thead tr:nth-child(3) th {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 5px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+    /*---------------------------------------------
+       BODY
+    ---------------------------------------------*/
+
+    .registration-table tbody td {
+        font-size: 16px;
+        padding: 14px 6px;
+        line-height: 1.3;
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+}
+
+
+/*=================================================
+                  SMALL MOBILE
+=================================================*/
+
+@media (max-width: 480px) {
+
+    .registration-section {
+        padding: 40px 0;
+    }
+
+    .registration-title {
+        font-size: 27px;
+    }
+
+
+    /*
+       Slightly smaller table width while still
+       maintaining enough space for all columns.
+    */
+
+    .registration-table {
+        min-width: 720px;
+    }
+
+
+/*---------------------------------------------
+       MAIN HEADER
+---------------------------------------------*/
+
+.registration-table thead tr:first-child th {
+    font-size: 16px;
+    padding: 14px 6px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+/*---------------------------------------------
+       BEFORE / AFTER HEADER
+---------------------------------------------*/
+
+.registration-table thead tr:nth-child(2) th {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 5px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+/*---------------------------------------------
+       NATIONAL / INTERNATIONAL HEADER
+---------------------------------------------*/
+
+.registration-table thead tr:nth-child(3) th {
+    font-size: 14px;
+    font-weight: 700;
+    padding: 12px 5px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+    /* Body */
+
+    .registration-table tbody td {
+        font-size: 15px;
+        padding: 13px 5px;
+    }
+}
+
+
+/*=================================================
+                VERY SMALL MOBILE
+=================================================*/
+
+@media (max-width: 360px) {
+
+    .registration-table {
+        min-width: 700px;
+    }
+
+
+    .registration-table thead tr:first-child th {
+        font-size: 16px;
+    }
+
+
+    .registration-table thead tr:nth-child(2) th {
+        font-size: 14px;
+    }
+
+
+    .registration-table tbody td {
+        font-size: 14px;
+    }
+}
+
+/* =================================================
+   ACCOMMODATION TABLE
+================================================= */
+
+/* =================================================
+   TABLE WRAPPER
+================================================= */
+
+.accommodation-table-wrapper {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+
+/* =================================================
+   TABLE
+================================================= */
+
+.accommodation-table {
+    width: 100%;
+    margin-bottom: 0;
+
+    table-layout: fixed;
+    border-collapse: collapse;
+
+    text-align: center;
+}
+
+
+/* =================================================
+   COLUMN WIDTHS
+
+   Type of Booking = 25%
+
+   Double Occupancy = 37.5%
+   Single Occupancy = 37.5%
+
+   Total = 100%
+================================================= */
+
+/* First column */
+
+.accommodation-table th:nth-child(1),
+.accommodation-table td:nth-child(1) {
+    width: 25%;
+}
+
+
+/* Second and third columns */
+
+.accommodation-table th:nth-child(2),
+.accommodation-table td:nth-child(2),
+.accommodation-table th:nth-child(3),
+.accommodation-table td:nth-child(3) {
+    width: 37.5%;
+}
+
+
+/* =================================================
+   HEADER
+================================================= */
+
+.accommodation-table thead {
+    background: #cfe2ff;
+}
+
+.accommodation-table thead th {
+    background: #cfe2ff;
+
+    color: #000000;
+
+    font-size: 22px;
+    font-weight: 700;
+
+    padding: 18px 10px;
+
+    border: 1px solid #b6c8e6;
+
+    text-align: center;
+    vertical-align: middle;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+
+    line-height: 1.25;
+}
+
+
+/* =================================================
+   OCCUPANCY HIGHLIGHT
+================================================= */
+
+.accommodation-highlight {
+    color: #e63946;
+
+    font-size: 18px;
+    font-weight: 600;
+
+    line-height: 1.25;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+/* =================================================
+   NORMAL HEADER TEXT
+================================================= */
+
+.accommodation-normal {
+    color: #222222;
+
+    font-size: 17px;
+    font-weight: 400;
+
+    line-height: 1.35;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+}
+
+
+/* =================================================
+   BODY
+================================================= */
+
+.accommodation-table tbody td {
+    background: #ffffff;
+
+    color: #222222;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    padding: 18px 10px;
+
+    text-align: center;
+    vertical-align: middle;
+
+    border: 1px solid #dee2e6;
+
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: normal;
+
+    line-height: 1.3;
+}
+
+
+/* =================================================
+   ALTERNATING ROWS
+================================================= */
+
+.accommodation-table tbody tr:nth-child(even) td {
+    background: #fafafa;
+}
+
+
+/* =================================================
+   HOVER
+================================================= */
+
+.accommodation-table tbody tr:hover td {
+    background: #fff5ea;
+}
+
+
+/* =================================================
+   RED STAR
+================================================= */
+
+.accommodation-star {
+    color: #e63946;
+    font-weight: 700;
+}
+
+
+/* =================================================
+   ACCOMMODATION NOTE
+================================================= */
+
+.accommodation-note {
+    margin-top: 15px;
+
+    padding: 0 10px;
+
+    text-align: center;
+
+    color: #e63946;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    line-height: 1.3;
+}
+
+
+/* =================================================
+   TABLET
+================================================= */
+
+@media (max-width: 992px) {
+
+    .accommodation-table-wrapper {
+        border-radius: 12px;
+    }
+
+
+    .accommodation-table {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+
+    /*---------------------------------------------
+       TABLET COLUMN PROPORTIONS
+
+       Type of Booking = 25%
+       Other columns = 37.5%
+    ---------------------------------------------*/
+
+    .accommodation-table th:nth-child(1),
+    .accommodation-table td:nth-child(1) {
+        width: 25%;
+    }
+
+    .accommodation-table th:nth-child(2),
+    .accommodation-table td:nth-child(2),
+    .accommodation-table th:nth-child(3),
+    .accommodation-table td:nth-child(3) {
+        width: 37.5%;
+    }
+
+
+    /*---------------------------------------------
+       HEADER
+    ---------------------------------------------*/
+
+    .accommodation-table thead th {
+        font-size: 20px;
+        padding: 16px 7px;
+        line-height: 1.25;
+
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+
+    /*---------------------------------------------
+       OCCUPANCY
+    ---------------------------------------------*/
+
+    .accommodation-highlight {
+        font-size: 16px;
+        line-height: 1.25;
+    }
+
+
+    .accommodation-normal {
+        font-size: 15px;
+        line-height: 1.3;
+    }
+
+
+    /*---------------------------------------------
+       BODY
+    ---------------------------------------------*/
+
+    .accommodation-table tbody td {
+        font-size: 18px;
+        padding: 16px 7px;
+        line-height: 1.3;
+
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+
+    /*---------------------------------------------
+       NOTE
+    ---------------------------------------------*/
+
+    .accommodation-note {
+        font-size: 16px;
+        margin-top: 15px;
+    }
+}
+
+
+/* =================================================
+   MOBILE
+================================================= */
+
+@media (max-width: 768px) {
+
+    .accommodation-table-wrapper {
+        width: 100%;
+
+        overflow-x: auto;
+        overflow-y: hidden;
+
+        -webkit-overflow-scrolling: touch;
+
+        border-radius: 10px;
+    }
+
+
+    /*---------------------------------------------
+       HORIZONTAL SCROLLING
+
+       Same strategy as registration table.
+    ---------------------------------------------*/
+
+    .accommodation-table {
+        min-width: 760px;
+        width: 100%;
+
+        table-layout: fixed;
+    }
+
+
+    /*---------------------------------------------
+       MOBILE COLUMN PROPORTIONS
+    ---------------------------------------------*/
+
+    .accommodation-table th:nth-child(1),
+    .accommodation-table td:nth-child(1) {
+        width: 25%;
+    }
+
+    .accommodation-table th:nth-child(2),
+    .accommodation-table td:nth-child(2),
+    .accommodation-table th:nth-child(3),
+    .accommodation-table td:nth-child(3) {
+        width: 37.5%;
+    }
+
+
+    /*---------------------------------------------
+       HEADER
+    ---------------------------------------------*/
+
+    .accommodation-table thead th {
+        font-size: 18px;
+
+        padding: 14px 6px;
+
+        line-height: 1.25;
+
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+
+    /*---------------------------------------------
+       OCCUPANCY
+    ---------------------------------------------*/
+
+    .accommodation-highlight {
+        font-size: 15px;
+
+        line-height: 1.25;
+
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+
+    .accommodation-normal {
+        font-size: 14px;
+
+        line-height: 1.3;
+
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+
+    /*---------------------------------------------
+       BODY
+    ---------------------------------------------*/
+
+    .accommodation-table tbody td {
+        font-size: 16px;
+
+        padding: 14px 6px;
+
+        line-height: 1.3;
+
+        white-space: normal;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+
+    /*---------------------------------------------
+       NOTE
+    ---------------------------------------------*/
+
+    .accommodation-note {
+        font-size: 14px;
+
+        margin-top: 15px;
+
+        padding: 0 10px;
+
+        line-height: 1.3;
+    }
+}
+
+
+/* =================================================
+   SMALL MOBILE
+================================================= */
+
+@media (max-width: 480px) {
+
+    .accommodation-table {
+        min-width: 720px;
+    }
+
+
+    /*---------------------------------------------
+       HEADER
+    ---------------------------------------------*/
+
+    .accommodation-table thead th {
+        font-size: 17px;
+
+        padding: 13px 5px;
+
+        line-height: 1.25;
+    }
+
+
+    /*---------------------------------------------
+       OCCUPANCY
+    ---------------------------------------------*/
+
+    .accommodation-highlight {
+        font-size: 14px;
+    }
+
+
+    .accommodation-normal {
+        font-size: 13px;
+    }
+
+
+    /*---------------------------------------------
+       BODY
+    ---------------------------------------------*/
+
+    .accommodation-table tbody td {
+        font-size: 15px;
+
+        padding: 13px 5px;
+
+        line-height: 1.3;
+    }
+
+
+    /*---------------------------------------------
+       NOTE
+    ---------------------------------------------*/
+
+    .accommodation-note {
+        font-size: 13px;
+
+        margin-top: 15px;
+    }
+}
+
+
+/* =================================================
+   VERY SMALL MOBILE
+================================================= */
+
+@media (max-width: 360px) {
+
+    .accommodation-table {
+        min-width: 700px;
+    }
+
+
+    /*---------------------------------------------
+       HEADER
+    ---------------------------------------------*/
+
+    .accommodation-table thead th {
+        font-size: 16px;
+    }
+
+
+    /*---------------------------------------------
+       OCCUPANCY
+    ---------------------------------------------*/
+
+    .accommodation-highlight {
+        font-size: 13px;
+    }
+
+
+    .accommodation-normal {
+        font-size: 12px;
+    }
+
+
+    /*---------------------------------------------
+       BODY
+    ---------------------------------------------*/
+
+    .accommodation-table tbody td {
+        font-size: 14px;
+    }
+
+
+    /*---------------------------------------------
+       NOTE
+    ---------------------------------------------*/
+
+    .accommodation-note {
+        font-size: 12px;
+    }
+}
+
+
+/*==================================================
+                VENUE PAGE
+==================================================*/
+
+.venue-section{
+    background:#fff;
+    padding:70px 0;
+}
+
+.venue-title{
+    font-size:40px;
+    font-weight:700;
+    color:#1f3d5c;
+}
+
+.venue-heading{
+    font-size:30px;
+    font-weight:700;
+    color:#1f3d5c;
+}
+
+.venue-divider{
+    width:80px;
+    height:4px;
+    background:#d89b3d;
+    margin:15px auto 35px;
+    border-radius:30px;
+}
+
+/* Information */
+
+.venue-info{
+    background:#fff;
+    padding:30px;
+    border-radius:10px;
+    border:1px solid #e6e6e6;
+    height:100%;
+}
+
+.venue-info h4{
+    color:#1f3d5c;
+    font-weight:700;
+    margin-bottom:20px;
+}
+
+.venue-info h5{
+    margin-top:20px;
+    color:#1f3d5c;
+    font-weight:600;
+}
+
+.venue-info p{
+    color:#555;
+    line-height:1.8;
+    margin-bottom:8px;
+}
+
+.venue-info a{
+    color:#2c87a8;
+    font-weight:600;
+}
+
+.venue-info a:hover{
+    color:#d89b3d;
+}
+
+/* ===============================
+   Google Map
+================================ */
+
+.venue-map-box{
+    background:#fff;
+    border:1px solid #e5e5e5;
+    border-radius:10px;
+    padding:20px;
+    height:100%;
+}
+
+.venue-map-box h5{
+    font-size:30px;
+    font-weight:700;
+    color:#1f3d5c;
+    margin-bottom:18px;
+}
+
+.venue-map{
+    width:100%;
+    overflow:hidden;
+    border-radius:10px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+}
+
+.venue-map iframe{
+    width:100%;
+    height:235px;      /* Increased from 310px */
+    border:0;
+    display:block;
+}
+
+.venue-btn{
+    display:inline-block;
+    margin-top:18px;
+    padding:10px 28px;
+    background:#2c87a8;
+    color:#fff;
+    border-radius:5px;
+    text-decoration:none;
+    font-weight:600;
+    transition:.3s;
+}
+
+.venue-btn:hover{
+    background:#d89b3d;
+    color:#fff;
+}
+
+/* Attraction */
+
+.attraction-card{
+    border:1px solid #e8e8e8;
+    transition:.3s;
+}
+
+.attraction-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.attraction-card img{
+    height:330px;
+    object-fit:cover;
+}
+
+.attraction-card .card-body{
+    padding:18px;
+}
+
+.attraction-card h5{
+    font-size:22px;
+    margin-bottom:10px;
+}
+
+.attraction-card h5 a{
+    color:#1f3d5c;
+    text-decoration:none;
+}
+
+.attraction-card h5 a:hover{
+    color:#d89b3d;
+}
+
+.attraction-card p{
+    color:#666;
+    font-size:15px;
+    line-height:1.6;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .venue-title{
+        font-size:32px;
+    }
+
+    .venue-heading{
+        font-size:26px;
+    }
+
+    .venue-map iframe{
+        height:260px;
+    }
+
+    .attraction-card img{
+        height:200px;
+    }
+
+}
+
+
+
+
+/* .venue-divider{
+    width:80px;
+    height:4px;
+    background:#d89b3d;
+    margin:15px auto 35px;
+    border-radius:30px;
+} */
+
+
+
+
+
+/*==============================
+      INVITED SPEAKERS
+==============================*/
+/*=========================================
+        INVITED SPEAKERS SECTION
+==========================================*/
+
+.invited-section{
+    padding:70px 0;
+    background:#f8f9fa;
+}
+
+.invited-section h2{
+    text-align:center;
+    font-size:38px;
+    font-weight:700;
+    color:#1f3d5c;
+    margin-bottom:10px;
+}
+
+/*----------------------------------------
+Divider
+----------------------------------------*/
+
+.venue-divider{
+    width:80px;
+    height:4px;
+    background:#d89b3d;
+    margin:0 auto 45px;
+    border-radius:30px;
+}
+
+/*----------------------------------------
+Speaker Card
+----------------------------------------*/
+
+.invited-card{
+
+    height:100%;
+
+    background:#c5c5c77a;
+
+    border:none;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.invited-card:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 12px 30px rgba(0,0,0,.15);
+
+}
+
+/*----------------------------------------
+Image Area
+----------------------------------------*/
+
+.speaker-image{
+
+    width:100%;
+
+    height:230px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    background:#fff;
+
+    padding:12px;
+
+    border-bottom:1px solid #ececec;
+
+}
+
+.speaker-image img{
+
+    max-width:100%;
+
+    max-height:100%;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    transition:.35s;
+
+}
+
+.invited-card:hover .speaker-image img{
+
+    transform:scale(1.03);
+
+}
+
+/*----------------------------------------
+Card Body
+----------------------------------------*/
+
+.invited-card .card-body{
+
+    padding:12px 15px 14px;
+
+    text-align:center;
+
+}
+
+/* Speaker Name */
+
+.invited-card h5{
+
+    font-size:18px;
+
+    font-weight:500;
+
+    color:#b40a10;
+
+    line-height:1.25;
+
+    margin:0 0 6px 0;
+
+    min-height:auto;
+
+}
+
+/* Institute */
+
+.invited-card p{
+
+    font-size:15px;
+
+    color:#000000;
+
+    line-height:1.45;
+
+    margin:0;
+
+}
+
+/*----------------------------------------
+Responsive
+----------------------------------------*/
+
+@media (max-width:1200px){
+
+    .speaker-image{
+
+        height:240px;
+
+    }
+
+}
+
+@media (max-width:992px){
+
+    .speaker-image{
+
+        height:220px;
+
+    }
+
+}
+
+@media (max-width:768px){
+
+    .speaker-image{
+
+        height:200px;
+
+    }
+
+    .invited-section h2{
+
+        font-size:32px;
+
+    }
+
+}
+
+@media (max-width:576px){
+
+    .speaker-image{
+
+        height:180px;
+
+    }
+
+    .invited-card h5{
+
+        font-size:17px;
+
+    }
+
+    .invited-card p{
+
+        font-size:14px;
+
+    }
+
+}
+
+
+/*====================================================
+                SPONSOR PAGE
+====================================================*/
+
+.sponsorship-section{
+    padding:70px 0;
+    background:#ffffff;
+}
+
+/*----------------------------
+Heading
+-----------------------------*/
+
+.sponsor-main-title{
+    font-size:40px;
+    font-weight:700;
+    color:#23364d;
+    margin-bottom:15px;
+}
+
+.sponsor-highlight{
+    color:#f0a307;
+}
+
+.sponsor-subtitle{
+    max-width:1100px;
+    margin:0 auto 10px;
+    color:#6c757d;
+    font-size:22px;
+    line-height:1.6;
+}
+
+/*----------------------------
+Table
+-----------------------------*/
+
+.sponsor-table-wrapper{
+
+    background:#fff;
+
+    border-radius:15px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+
+}
+
+.sponsor-table{
+
+    margin-bottom:0;
+
+}
+
+.sponsor-table thead{
+
+    background:#cfe2ff;   /* Light blue header */
+
+}
+
+.sponsor-table thead th{
+
+    color:#000;           /* Black text */
+
+    background:#cfe2ff;   /* Same background for each cell */
+
+    font-size:22px;
+
+    font-weight:700;
+
+    padding:18px;
+
+    border:1px solid #b6c8e6;
+
+}
+
+.sponsor-table td{
+
+    padding:16px;
+
+    vertical-align:middle;
+
+    font-size:20px;
+
+}
+
+.sponsor-table tbody tr:nth-child(even){
+
+    background:#fafafa;
+
+}
+
+.sponsor-table tbody tr:hover{
+
+    background:#fff5ea;
+
+}
+
+.price-row{
+
+    background:#fff4df;
+
+    font-weight:700;
+
+    font-size:18px;
+
+}
+
+.sponsor-note{
+
+    margin-top:18px;
+
+    color:#b03a2e;
+
+    font-size:18px;
+
+    font-weight:600;
+
+}
+
+/*==============================
+Contact Card
+==============================*/
+
+.sponsor-contact-card{
+
+    margin-top:70px;
+
+    border:none;
+
+    border-radius:18px;
+
+    overflow:hidden;
+
+    box-shadow:0 12px 35px rgba(0,0,0,.08);
+
+}
+
+.sponsor-contact-card .card-header{
+
+    background:linear-gradient(90deg,#c8843d,#2c87a8);
+
+    color:#fff;
+
+    padding:18px;
+
+}
+
+.sponsor-contact-card .card-header h3{
+
+    margin:0;
+
+    font-size:34px;
+
+    font-weight:700;
+
+}
+
+.sponsor-contact-card .card-body{
+
+    padding:45px;
+
+    background:#fff;
+
+}
+
+.sponsor-contact-img{
+
+    width:180px;
+
+    height:180px;
+
+    object-fit:cover;
+
+    border-radius:50%;
+
+    border:6px solid #f3f3f3;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.12);
+
+    transition:.35s;
+
+}
+
+.sponsor-contact-img:hover{
+
+    transform:scale(1.05);
+
+}
+
+.sponsor-contact-card h5{
+
+    font-size:28px;
+
+    color:#003366;
+
+    font-weight:700;
+
+    margin-top:18px;
+
+}
+
+.sponsor-contact-card p{
+
+    font-size:17px;
+
+    color:#555;
+
+    line-height:1.7;
+
+}
+
+.sponsor-contact-card p:last-child{
+
+    color:#2c87a8;
+
+    font-weight:600;
+
+}
+
+/*==============================
+Sponsor Gallery
+==============================*/
+
+.sponsor-gallery{
+
+    margin-top:70px;
+
+}
+
+.sponsor-gallery-title{
+
+    font-size:40px;
+
+    font-weight:700;
+
+    color:#1f3d5c;
+
+    text-align:center;
+
+}
+
+.sponsor-logo-card{
+
+    height:180px;
+
+    border-radius:15px;
+
+    background:#fff;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    border:1px solid #ececec;
+
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.sponsor-logo-card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,.15);
+
+}
+
+.sponsor-logo-card img{
+
+    max-width:85%;
+
+    max-height:120px;
+
+    object-fit:contain;
+
+}
+
+.sponsor-empty{
+
+    color:#999;
+
+    font-size:17px;
+
+    font-style:italic;
+
+    border:2px dashed #d9d9d9;
+
+    background:#fafafa;
+
+}
+
+/*==============================
+Responsive
+==============================*/
+
+@media(max-width:992px){
+
+.sponsor-main-title{
+font-size:34px;
+}
+
+.sponsor-contact-img{
+width:150px;
+height:150px;
+}
+
+.sponsor-logo-card{
+height:150px;
+}
+
+}
+
+/*========================================
+        TABLET
+========================================*/
+
+@media(max-width:992px){
+
+.sponsor-main-title{
+    font-size:34px;
+}
+
+.sponsor-subtitle{
+    font-size:20px;
+}
+
+.sponsor-contact-img{
+    width:150px;
+    height:150px;
+}
+
+.sponsor-logo-card{
+    height:150px;
+}
+
+/* Slightly smaller table */
+.sponsor-table th{
+    font-size:19px;
+    padding:15px;
+}
+
+.sponsor-table td{
+    font-size:18px;
+    padding:15px;
+}
+
+}
+
+
+/*========================================
+        MOBILE
+========================================*/
+
+@media(max-width:768px){
+
+.sponsorship-section{
+    padding:50px 0;
+}
+
+.sponsor-main-title{
+    font-size:30px;
+}
+
+.sponsor-subtitle{
+    font-size:17px;
+}
+
+/* Enable horizontal scrolling */
+.sponsor-table-wrapper{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+}
+
+/* Prevent squeezing */
+.sponsor-table{
+    min-width:850px;
+}
+
+/* Keep proper desktop proportions */
+.sponsor-table th{
+    font-size:16px;
+    padding:14px;
+    white-space:nowrap;
+}
+
+.sponsor-table td{
+    font-size:16px;
+    padding:14px;
+    white-space:nowrap;
+}
+
+/* Contact Card */
+
+.sponsor-contact-card .card-body{
+    padding:25px;
+}
+
+.sponsor-contact-card .card-header h3{
+    font-size:26px;
+}
+
+.sponsor-contact-card h5{
+    font-size:22px;
+}
+
+.sponsor-contact-card p{
+    font-size:15px;
+}
+
+.sponsor-contact-img{
+    width:130px;
+    height:130px;
+}
+
+/* Gallery */
+
+.sponsor-gallery-title{
+    font-size:30px;
+}
+
+.sponsor-logo-card{
+    height:120px;
+}
+
+.sponsor-logo-card img{
+    max-height:80px;
+}
+
+.sponsor-note{
+    font-size:15px;
+    line-height:1.6;
+}
+
+}
+
+
+/*=====================================================
+      SUB COMMITTEES
+(Finance, Transport, Hospitality)
+======================================================*/
+
+.subcommittee-section{
+    padding:40px 0;
+}
+
+.subcommittee-section .committee-main-card{
+    border:none;
+    border-radius:12px;
+    overflow:hidden;
+    background:#fff;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.subcommittee-section .committee-main-card:hover{
+    box-shadow:0 15px 35px rgba(0,0,0,.12);
+}
+
+.subcommittee-section .card-header{
+    background:linear-gradient(90deg,#c8843d,#2c87a8);
+    color:#fff;
+    font-size:28px;
+    font-weight:700;
+    text-align:center;
+    padding:16px;
+    border:none;
+}
+
+.subcommittee-section .card-body{
+    padding:35px 20px;
+}
+
+.subcommittee-member{
+    margin-bottom:25px;
+}
+
+.subcommittee-member img{
+    width:130px;
+    height:130px;
+    object-fit:cover;
+    border-radius:10px;
+    border:4px solid #f5f5f5;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    transition:.3s;
+}
+
+.subcommittee-member:hover img{
+    transform:scale(1.05);
+}
+
+.subcommittee-member .role{
+    margin-top:12px;
+    margin-bottom:5px;
+    font-size:14px;
+    color:#666;
+    font-weight:600;
+}
+
+.subcommittee-member .name{
+    color:#003366;
+    font-size:18px;
+    font-weight:700;
+    margin-bottom:6px;
+}
+
+.subcommittee-member .designation{
+    font-size:15px;
+    color:#555;
+    line-height:1.5;
+}
+
+/* spacing between committees */
+.subcommittee-section + .subcommittee-section{
+    padding-top:10px;
+}
+
+/* Responsive */
+
+@media(max-width:992px){
+
+.subcommittee-member{
+    margin-bottom:35px;
+}
+
+}
+
+@media(max-width:768px){
+
+.subcommittee-section .card-header{
+    font-size:22px;
+}
+
+.subcommittee-member img{
+    width:110px;
+    height:110px;
+}
+
+.subcommittee-member .name{
+    font-size:17px;
+}
+
+.subcommittee-member .designation{
+    font-size:14px;
+}
+
+}
+
+@media(max-width:576px){
+
+.subcommittee-section .card-body{
+    padding:25px 10px;
+}
+
+.subcommittee-member img{
+    width:95px;
+    height:95px;
+}
+
+.subcommittee-member .name{
+    font-size:16px;
+}
+
+.subcommittee-member .role{
+    font-size:13px;
+}
+
+}
+
+/*=================================================
+                PUBLICATION PAGE
+=================================================*/
+
+.publication-section{
+    padding:70px 0;
+    background:#ffffff;
+}
+
+/* Heading */
+
+.publication-title{
+    font-size:40px;
+    font-weight:700;
+    color:#23364d;
+    margin-bottom:15px;
+}
+
+.journal-highlight{
+    color:#f0a307;
+}
+
+/* Subtitle */
+
+.publication-subtitle{
+    font-size:22px;
+    color:#6c757d;
+    max-width:1100px;
+    margin:0 auto 10px;
+    line-height:1.6;
+}
+
+/* Table */
+
+.publication-table{
+
+    width:100%;
+
+    table-layout:fixed;
+
+    border-collapse:separate;
+    border-spacing:0;
+
+    overflow:hidden;
+
+    border-radius:14px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+/* Header */
+
+.publication-table thead th{
+
+    background:#212529 !important;
+
+    color:#ffffff !important;
+
+    font-size:22px;
+
+    font-weight:700;
+
+    padding:18px;
+
+    border:1px solid #343a40;
+
+    width:25%;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+}
+
+/* COLUMN WIDTHS */
+
+.publication-table th:nth-child(1),
+.publication-table td:nth-child(1){
+    width:10%;
+}
+
+.publication-table th:nth-child(2),
+.publication-table td:nth-child(2){
+    width:23%;
+}
+
+.publication-table th:nth-child(3),
+.publication-table td:nth-child(3){
+    width:45%;
+}
+
+.publication-table th:nth-child(4),
+.publication-table td:nth-child(4){
+    width:22%;
+}
+
+/* Body */
+
+.publication-table tbody td{
+
+    background:#ffffff;
+
+    font-size:20px;
+
+    font-weight:600;
+
+    color:#222;
+
+    padding:24px;
+
+    width:25%;
+
+    text-align:center;
+
+    vertical-align:middle;
+
+    border:1px solid #dee2e6;
+
+}
+
+.publication-table tbody tr:hover{
+
+    background:#f8f9fa;
+
+}
+
+/* Journal Name */
+
+.journal-name{
+
+    font-size:30px;
+
+    font-weight:700;
+
+}
+
+/* Impact Factor */
+
+.impact-factor{
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+/* Logo */
+
+.journal-logo{
+
+    width:100%;
+
+    max-width:100%;
+
+    height:auto;
+
+    margin:0 auto;
+
+    border-radius:10px;
+
+    box-shadow:0 6px 18px rgba(0,0,0,.18);
+
+    transition:0.3s;
+
+}
+
+
+.journal-logo-small{
+
+    width:130px;
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+.journal-logo-small2{
+
+    width:170px;
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+.journal-logo-small3{
+
+    width:250px;
+
+    max-width:100%;
+
+    height:auto;
+
+}
+
+.journal-logo:hover{
+
+    transform:scale(1.06);
+
+}
+
+/* Tablet */
+
+@media (max-width:992px){
+
+    .publication-title{
+        font-size:34px;
+    }
+
+    .publication-subtitle{
+        font-size:20px;
+    }
+
+    .publication-table thead th{
+        font-size:20px;
+    }
+
+    .publication-table tbody td{
+        font-size:18px;
+        padding:18px;
+    }
+
+    .journal-name{
+        font-size:24px;
+    }
+
+    .impact-factor{
+        font-size:22px;
+    }
+
+    /* Last column */
+
+    .publication-table th:nth-child(3),
+    .publication-table td:nth-child(3){
+        padding:14px;
+    }
+
+    /* Normal logos in last column */
+
+    .publication-table td:nth-child(3) .journal-logo{
+        width:100%;
+        max-width:100%;
+    }
+
+    /* Individual narrow/tall logos */
+
+    .publication-table td:nth-child(3) .journal-logo-small{
+        width:130px;
+        max-width:100%;
+    }
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media (max-width:768px){
+
+    .publication-section{
+        padding:50px 0;
+    }
+
+    /* allow horizontal scrolling */
+
+    .publication-responsive{
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .publication-table{
+        min-width:760px;
+    }
+
+    .publication-title{
+        font-size:30px;
+    }
+
+    .publication-subtitle{
+        font-size:17px;
+    }
+
+    .publication-table thead th{
+        font-size:16px;
+        padding:14px;
+        white-space:nowrap;
+    }
+
+    .publication-table tbody td{
+        font-size:16px;
+        padding:18px;
+    }
+
+    .journal-name{
+        font-size:22px;
+        line-height:1.35;
+    }
+
+    .impact-factor{
+        font-size:22px;
+    }
+
+    /* Last column */
+
+    .publication-table th:nth-child(3),
+    .publication-table td:nth-child(3){
+        padding:12px;
+    }
+
+    /* Normal logos in last column */
+
+    .publication-table td:nth-child(3) .journal-logo{
+        width:100%;
+        max-width:100%;
+    }
+
+    /* Individual narrow/tall logos */
+
+    .publication-table td:nth-child(3) .journal-logo-small{
+        width:130px;
+        max-width:100%;
+    }
+
+}
+
+/*=========================================
+            JOURNAL NOTE
+=========================================*/
+
+.journal-note{
+
+    text-align:center;
+
+    font-size:20px;
+
+    color:#dc3545;
+
+    font-weight:500;
+
+    line-height:1.7;
+
+    margin-top:15px;
+
+    margin-bottom:15px;
+
+}
+
+.journal-note-highlight{
+
+    color:#f0a307;
+
+    font-weight:700;
+
+}
+
+.red-star{
+    color:#dc3545;   /* Red */
+}
+
+.footer-countdown{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/*====================================================*
+  PARTICIPANT INFORMATION PAGE
+*====================================================*/
+
+.participant-section{
+    padding:70px 0;
+    background:#ffffff;
+}
+
+/*----------------------------*
+  Main Heading
+*-----------------------------*/
+
+.participant-title{
+    font-size:40px;
+    font-weight:700;
+    color:#23364d;
+    margin-bottom:15px;
+    letter-spacing:-0.3px;
+}
+
+.participant-highlight{
+    color:#f0a307;
+}
+
+
+/*====================================================*
+  PARTICIPANT NOTE
+*====================================================*/
+
+.participant-note{
+    max-width:1100px;
+    margin:0 auto 50px;
+    padding:28px 35px;
+    background:#fffdf7;
+    border-left:6px solid #f0a307;
+    border-radius:12px;
+    box-shadow:0 8px 24px rgba(0,0,0,.06);
+}
+
+.participant-note-title{
+    color:#23364d;
+    font-size:26px;
+    font-weight:700;
+    margin-bottom:18px;
+    text-align:left;
+}
+
+.participant-note-title i{
+    color:#f0a307;
+}
+
+.participant-note p{
+    font-size:19px;
+    line-height:1.9;
+    color:#5b6f86;
+    margin-bottom:16px;
+    text-align:justify;
+}
+
+.participant-note strong{
+    color:#23364d;
+    font-weight:700;
+}
+
+
+/*====================================================*
+  TABLE WRAPPER
+*====================================================*/
+
+.participant-table-wrapper{
+    background:#ffffff;
+    border-radius:16px;
+    overflow:hidden;
+    box-shadow:0 8px 28px rgba(35,54,77,.10);
+    border:1px solid #dce4ec;
+}
+
+
+/*====================================================*
+  TABLE
+*====================================================*/
+
+.participant-table{
+    width:100%;
+    margin-bottom:0;
+    table-layout:fixed;
+    border-collapse:separate;
+    border-spacing:0;
+}
+
+
+/*====================================================*
+  COLUMN HEADINGS
+*====================================================*/
+
+.participant-table thead{
+    background:#eaf2fa;
+}
+
+.participant-table thead th{
+    background:#eaf2fa;
+    color:#233f5d;
+    font-size:20px;
+    font-weight:700;
+    padding:20px 18px;
+    border:0;
+    border-right:1px solid #d5e0eb;
+    border-bottom:2px solid #cbd9e7;
+    text-align:center;
+    vertical-align:middle;
+    line-height:1.35;
+    letter-spacing:.1px;
+}
+
+.participant-table thead th:last-child{
+    border-right:0;
+}
+
+
+/*====================================================*
+  TABLE BODY
+*====================================================*/
+
+.participant-table tbody td{
+    background:#ffffff;
+    color:#30465c;
+    font-size:18px;
+    font-weight:400;
+    padding:20px 18px;
+    text-align:center;
+    vertical-align:middle;
+    border:0;
+    border-right:1px solid #e3e8ee;
+    border-bottom:1px solid #e3e8ee;
+    line-height:1.65;
+}
+
+.participant-table tbody td:last-child{
+    border-right:0;
+}
+
+.participant-table tbody tr:last-child td{
+    border-bottom:0;
+}
+
+
+/* Alternate rows */
+
+.participant-table tbody tr:nth-child(even) td{
+    background:#f8fafc;
+}
+
+
+/* Hover */
+
+.participant-table tbody tr:hover td{
+    background:#f1f6fb;
+    transition:background .2s ease;
+}
+
+
+/*====================================================*
+  COLUMN WIDTHS
+*====================================================*/
+
+.participant-table th:nth-child(1),
+.participant-table td:nth-child(1){
+    width:32%;
+}
+
+.participant-table th:nth-child(2),
+.participant-table td:nth-child(2){
+    width:28%;
+}
+
+.participant-table th:nth-child(3),
+.participant-table td:nth-child(3){
+    width:18%;
+}
+
+.participant-table th:nth-child(4),
+.participant-table td:nth-child(4){
+    width:20%;
+}
+
+
+/*====================================================*
+  COLUMN ALIGNMENT
+*====================================================*/
+
+.participant-table th:first-child,
+.participant-table td:first-child{
+    text-align:left;
+    padding-left:20px;
+}
+
+.participant-table th:nth-child(2),
+.participant-table td:nth-child(2){
+    text-align:left;
+    padding-left:20px;
+}
+
+.participant-table th:nth-child(3),
+.participant-table td:nth-child(3){
+    text-align:center;
+}
+
+.participant-table th:nth-child(4),
+.participant-table td:nth-child(4){
+    text-align:center;
+}
+
+
+/*====================================================*
+  LINKS / IMPORTANT TEXT INSIDE TABLE
+*====================================================*/
+
+.participant-table a{
+    font-weight:600;
+    text-decoration:none;
+}
+
+.participant-table a:hover{
+    text-decoration:underline;
+}
+
+
+/*====================================================*
+  GOOGLE MAP BUTTON
+*====================================================*/
+
+/*
+   IMPORTANT:
+   !important prevents Bootstrap or other global
+   <a> styling from making the button text blue.
+*/
+
+.venue-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:12px 25px;
+
+    background:#ff7a18;
+    color:#ffffff !important;
+
+    font-size:18px;
+    font-weight:500;
+    line-height:1.3;
+
+    text-decoration:none !important;
+
+    border:none;
+    border-radius:9px;
+
+    cursor:pointer;
+
+    transition:
+        background .25s ease,
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+
+/* Normal link state */
+
+.venue-btn:link{
+    color:#ffffff !important;
+}
+
+
+/* Visited link */
+
+.venue-btn:visited{
+    color:#ffffff !important;
+}
+
+
+/* Hover */
+
+.venue-btn:hover{
+    color:#ffffff !important;
+    background:#e9680c;
+    text-decoration:none !important;
+
+    transform:translateY(-2px);
+
+    box-shadow:0 6px 16px rgba(255,122,24,.25);
+}
+
+
+/* Active */
+
+.venue-btn:active{
+    color:#ffffff !important;
+    background:#d95f09;
+    transform:translateY(0);
+}
+
+
+/* Focus */
+
+.venue-btn:focus{
+    color:#ffffff !important;
+    text-decoration:none !important;
+    outline:none;
+    box-shadow:0 0 0 3px rgba(255,122,24,.20);
+}
+
+
+/*====================================================*
+  PARTICIPANT ACCORDION
+*====================================================*/
+
+.participant-accordion{
+    margin-top:20px;
+}
+
+
+/* Individual accordion item */
+
+.participant-accordion .accordion-item{
+    border:1px solid #d9e2eb;
+    border-radius:12px;
+    overflow:hidden;
+    margin-bottom:12px;
+    background:#ffffff;
+    box-shadow:0 4px 15px rgba(35,54,77,.06);
+}
+
+
+/* Accordion heading */
+
+.participant-accordion .accordion-button{
+    position:relative;
+
+    font-size:21px;
+    font-weight:700;
+
+    color:#233f5d;
+    background:#eef3f8;
+
+    padding:20px 24px;
+
+    border:0;
+    box-shadow:none;
+
+    line-height:1.4;
+}
+
+
+/* Small gold accent */
+
+.participant-accordion .accordion-button::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:0;
+    bottom:0;
+
+    width:5px;
+
+    background:#f0a307;
+}
+
+
+/* Expanded accordion */
+
+.participant-accordion .accordion-button:not(.collapsed){
+    color:#ffffff;
+    background:#233f5d;
+
+    box-shadow:none;
+}
+
+
+/* Expanded accordion accent */
+
+.participant-accordion .accordion-button:not(.collapsed)::before{
+    background:#f0a307;
+}
+
+
+/* Accordion focus */
+
+.participant-accordion .accordion-button:focus{
+    box-shadow:none;
+}
+
+
+/* Accordion body */
+
+.participant-accordion .accordion-body{
+    background:#ffffff;
+    padding:0;
+}
+
+
+/*====================================================*
+  TABLE INSIDE ACCORDION
+*====================================================*/
+
+.participant-accordion .participant-table{
+    margin-bottom:0;
+}
+
+
+/* Column headings inside accordion */
+
+.participant-accordion .participant-table th{
+    background:#eaf2fa;
+    color:#233f5d;
+
+    font-weight:700;
+    font-size:18px;
+
+    padding:18px 12px;
+
+    border-right:1px solid #d5e0eb;
+    border-bottom:2px solid #cbd9e7;
+}
+
+
+/* Table cells inside accordion */
+
+.participant-accordion .participant-table td{
+    color:#30465c;
+    font-size:17px;
+    font-weight:400;
+
+    padding:18px 12px;
+
+    border-right:1px solid #e3e8ee;
+    border-bottom:1px solid #e3e8ee;
+}
+
+
+/*====================================================*
+  TABLET
+====================================================*/
+
+@media (max-width:992px){
+
+    .participant-section{
+        padding:60px 20px;
+    }
+
+    .participant-title{
+        font-size:34px;
+    }
+
+    .participant-note{
+        padding:25px 28px;
+    }
+
+    .participant-note p{
+        font-size:18px;
+        line-height:1.8;
+    }
+
+    .participant-table-wrapper{
+        width:100%;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+    }
+
+    .participant-table{
+        min-width:760px;
+    }
+
+    .participant-table thead th{
+        font-size:17px;
+        padding:15px 10px;
+        line-height:1.3;
+    }
+
+    .participant-table tbody td{
+        font-size:16px;
+        padding:15px 10px;
+        line-height:1.5;
+    }
+
+    .participant-table th:first-child,
+    .participant-table td:first-child,
+    .participant-table th:nth-child(2),
+    .participant-table td:nth-child(2){
+        padding-left:12px;
+    }
+
+    .venue-btn{
+        font-size:16px;
+        padding:10px 18px;
+        white-space:nowrap;
+    }
+
+    .participant-accordion .accordion-button{
+        font-size:19px;
+        padding:18px 22px;
+    }
+
+    .participant-accordion .participant-table{
+        min-width:760px;
+    }
+
+    .participant-accordion .participant-table th{
+        font-size:16px;
+        padding:15px 10px;
+    }
+
+    .participant-accordion .participant-table td{
+        font-size:15px;
+        padding:15px 10px;
+    }
+
+}
+
+
+/*====================================================*
+  MOBILE
+====================================================*/
+
+@media (max-width:768px){
+
+    .participant-section{
+        padding:45px 12px;
+    }
+
+    .participant-title{
+        font-size:28px;
+        line-height:1.25;
+    }
+
+
+    /* Table wrapper */
+
+    .participant-table-wrapper{
+        width:100%;
+        overflow-x:auto;
+        -webkit-overflow-scrolling:touch;
+        border-radius:12px;
+    }
+
+
+    /* Keep table readable without making it excessively wide */
+
+    .participant-table{
+        min-width:680px;
+        table-layout:fixed;
+    }
+
+
+    .participant-table thead th{
+        font-size:14px;
+        padding:12px 8px;
+        white-space:normal;
+        line-height:1.3;
+    }
+
+
+    .participant-table tbody td{
+        font-size:14px;
+        padding:12px 8px;
+        white-space:normal;
+        line-height:1.45;
+        word-break:normal;
+        overflow-wrap:break-word;
+    }
+
+
+    /* Better mobile column proportions */
+
+    .participant-table th:nth-child(1),
+    .participant-table td:nth-child(1){
+        width:30%;
+    }
+
+    .participant-table th:nth-child(2),
+    .participant-table td:nth-child(2){
+        width:27%;
+    }
+
+    .participant-table th:nth-child(3),
+    .participant-table td:nth-child(3){
+        width:18%;
+    }
+
+    .participant-table th:nth-child(4),
+    .participant-table td:nth-child(4){
+        width:25%;
+    }
+
+
+    .participant-table th:first-child,
+    .participant-table td:first-child,
+    .participant-table th:nth-child(2),
+    .participant-table td:nth-child(2){
+        padding-left:9px;
+    }
+
+
+    /* Google Map button */
+
+    .venue-btn{
+        font-size:14px;
+        padding:9px 13px;
+        white-space:nowrap;
+        border-radius:7px;
+    }
+
+
+    /* Accordion */
+
+    .participant-accordion{
+        margin-top:15px;
+    }
+
+    .participant-accordion .accordion-button{
+        font-size:16px;
+        padding:15px 18px;
+        line-height:1.35;
+    }
+
+    .participant-accordion .participant-table{
+        min-width:680px;
+    }
+
+    .participant-accordion .participant-table th{
+        font-size:14px;
+        padding:12px 8px;
+        line-height:1.3;
+    }
+
+    .participant-accordion .participant-table td{
+        font-size:14px;
+        padding:12px 8px;
+        line-height:1.45;
+    }
+
+
+    /* Participant note */
+
+    .participant-note{
+        padding:20px 18px;
+        margin-bottom:30px;
+        border-left-width:5px;
+    }
+
+    .participant-note-title{
+        font-size:21px;
+        line-height:1.35;
+    }
+
+    .participant-note p{
+        font-size:16px;
+        line-height:1.7;
+        text-align:left;
+    }
+
+}
+
+
+/* Teal colour code #20c997 , hover code #199d7e */
+
+.btn-campus{
+    background:#fd7e14;
+    border-color:#fd7e14;
+    color:#fff;
+}
+
+.btn-campus:hover{
+    background:#d86506;
+    border-color:#d86506;
+    color:#fff;
+}
+
+.btn-bpal{
+    background:#20c997;
+    border-color:#20c997;
+    color:#fff;
+}
+
+.btn-bpal:hover{
+    background:#199d7e;
+    border-color:#199d7e;
+    color:#fff;
+}
+
+.normal-text{
+    font-weight:400;
+}
+
+.venue-map-buttons{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:35px;
+    flex-wrap:wrap;
+}
+
+.venue-map-buttons .venue-btn{
+    flex:0 0 40%;
+    text-align:center;
+}
+
+/* ================================
+   REGISTRATION BUTTON - PURPLE
+   ================================ */
+
+.btn-registration {
+    background-color: #8e44ad !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-registration:hover {
+    background-color: #7d3c98 !important;
+    color: #ffffff !important;
+}
+
+
+/* ================================
+   HOSTEL BOOKING - LIGHT RED
+   ================================ */
+
+.btn-hostel {
+    background-color: #ff6b6b !important;
+    color: #ffffff !important;
+    border: none !important;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.btn-hostel:hover {
+    background-color: #e55050 !important;
+    color: #ffffff !important;
+}
+
+
+/*=================================================
+                CONTACT US PAGE
+=================================================*/
+
+.contact-section {
+
+    padding: 70px 0;
+
+    background: #ffffff;
+}
+
+
+/*=================================================
+                    HEADING
+=================================================*/
+
+.contact-section .registration-title {
+
+    font-size: 40px;
+
+    font-weight: 700;
+
+    color: #23364d;
+
+    margin-bottom: 15px;
+}
+
+
+/*=================================================
+                    SUBTITLE
+=================================================*/
+
+.contact-section .publication-subtitle {
+
+    max-width: 1000px;
+
+    margin: 0 auto 30px;
+
+    color: #6c757d;
+
+    font-size: 22px;
+
+    line-height: 1.6;
+}
+
+
+/*=================================================
+                 EMAIL BOX
+=================================================*/
+
+.contact-email-box {
+
+    max-width: 850px;
+
+    margin: 35px auto 0;
+
+    padding: 30px 25px;
+
+    background: #f8f9fa;
+
+    border-radius: 15px;
+
+    border: 1px solid #e5e5e5;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+/*=================================================
+                 EMAIL DESCRIPTION
+=================================================*/
+
+.contact-email-text {
+
+    margin-bottom: 12px;
+
+    color: #333;
+
+    font-size: 20px;
+
+    font-weight: 400;
+
+    line-height: 1.5;
+}
+
+
+/*=================================================
+                    EMAIL
+=================================================*/
+
+.contact-email {
+
+    color: #dc3545;
+
+    font-size: 27px;
+
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition: 0.3s;
+}
+
+.contact-email:hover {
+
+    color: #b02a37;
+
+    text-decoration: underline;
+}
+
+
+/*=================================================
+                    TABLET
+=================================================*/
+
+@media (max-width: 992px) {
+
+    .contact-section {
+
+        padding: 60px 0;
+    }
+
+    .contact-section .registration-title {
+
+        font-size: 34px;
+    }
+
+    .contact-section .publication-subtitle {
+
+        font-size: 20px;
+    }
+
+    .contact-email-box {
+
+        max-width: 750px;
+
+        padding: 25px 20px;
+    }
+
+    .contact-email-text {
+
+        font-size: 18px;
+    }
+
+    .contact-email {
+
+        font-size: 24px;
+    }
+}
+
+
+/*=================================================
+                    MOBILE
+=================================================*/
+
+@media (max-width: 768px) {
+
+    .contact-section {
+
+        padding: 50px 0;
+    }
+
+    .contact-section .registration-title {
+
+        font-size: 30px;
+    }
+
+    .contact-section .publication-subtitle {
+
+        font-size: 17px;
+
+        line-height: 1.5;
+
+        margin-bottom: 25px;
+    }
+
+    .contact-email-box {
+
+        margin-top: 25px;
+
+        padding: 22px 15px;
+
+        border-radius: 12px;
+    }
+
+    .contact-email-text {
+
+        font-size: 16px;
+
+        line-height: 1.5;
+    }
+
+    .contact-email {
+
+        font-size: 20px;
+
+        word-break: break-word;
+    }
+}
+
+
+/*=================================================
+                SMALL MOBILE
+=================================================*/
+
+@media (max-width: 480px) {
+
+    .contact-section {
+
+        padding: 40px 0;
+    }
+
+    .contact-section .registration-title {
+
+        font-size: 27px;
+    }
+
+    .contact-section .publication-subtitle {
+
+        font-size: 16px;
+    }
+
+    .contact-email-box {
+
+        padding: 20px 12px;
+    }
+
+    .contact-email-text {
+
+        font-size: 15px;
+    }
+
+    .contact-email {
+
+        font-size: 18px;
+    }
+}
