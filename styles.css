@@ -965,10 +965,23 @@ section {
 
 /* 4-column grid showing all speakers at once */
 .speaker-grid-all {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
   margin: 32px auto 0;
+}
+
+.speaker-category + .speaker-category {
+  margin-top: 48px;
+}
+
+.speaker-category-title {
+  margin: 0;
+  color: var(--navy-deep);
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  text-align: center;
 }
 
 .speaker-carousel {
@@ -989,7 +1002,7 @@ section {
 
 .speaker-card {
   box-sizing: border-box;
-  flex: 0 0 calc((100% - 72px) / 4);
+  flex: 0 1 calc((100% - 72px) / 4);
   min-width: 0;
   padding: 12px;
   background: var(--white);
@@ -1265,6 +1278,11 @@ section {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.comm-name {
+  white-space: normal;
+  overflow-wrap: anywhere;
 }
 
 .leader-name {
@@ -1950,7 +1968,11 @@ section {
   }
 
   .speaker-grid-all {
-    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .speaker-grid-all .speaker-card {
+    flex-basis: calc((100% - 20px) / 2);
   }
 
   .comm-multi-row .comm-card {
@@ -1969,7 +1991,7 @@ section {
     transition: none;
   }
 
-  .speaker-card {
+  .speaker-track .speaker-card {
     display: none;
     flex: none;
     width: auto;
@@ -1989,13 +2011,13 @@ section {
     animation: speaker-card-enter 0.5s ease both;
   }
 
-  .speaker-photo {
+  .speaker-track .speaker-photo {
     width: 84px;
     height: 112px;
     margin: 0 auto 4px;
   }
 
-  .speaker-card .speaker-name {
+  .speaker-track .speaker-card .speaker-name {
     margin-bottom: 4px;
     font-size: 1.1rem;
   }
@@ -2113,8 +2135,11 @@ section {
   }
 
   .speaker-grid-all {
-    grid-template-columns: repeat(2, 1fr);
     gap: 14px;
+  }
+
+  .speaker-grid-all .speaker-card {
+    flex-basis: calc((100% - 14px) / 2);
   }
 
   .comm-multi-row .comm-card {
@@ -2200,6 +2225,66 @@ section {
   font-size: 0.94rem;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+.logistics-section {
+  background: var(--sand-bg);
+}
+
+.logistics-subsection + .logistics-subsection {
+  margin-top: 48px;
+}
+
+.logistics-subheading {
+  margin: 0 0 24px;
+  color: var(--navy-deep);
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.logistics-hotel-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 28px;
+}
+
+.logistics-hotel-grid .travel-card {
+  margin: 0;
+  text-align: left;
+}
+
+.logistics-hotel-grid .travel-card p {
+  margin: 0 0 18px;
+}
+
+.logistics-hotel-grid .travel-card h3 {
+  overflow-wrap: anywhere;
+}
+
+.hotel-map-link {
+  display: inline-block;
+  margin-top: 12px;
+  color: var(--teal-primary);
+  font-weight: 700;
+}
+
+.visa-subsection .reg-notes {
+  max-width: 840px;
+  margin: 0 auto;
+}
+
+@media (max-width: 992px) {
+  .logistics-hotel-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .logistics-hotel-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 .jodhpur-subheading {

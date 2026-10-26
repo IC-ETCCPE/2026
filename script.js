@@ -48,10 +48,12 @@ document.addEventListener('DOMContentLoaded', () => {
     'comm-national': ['committee'],
     'comm-core': ['committee'],
     'comm-local': ['committee'],
+    'comm-logistics': ['committee'],
     'comm-website': ['committee'],
     'abstract': ['abstract'],
     'registration': ['registration'],
     'sponsorship': ['sponsorship'],
+    'logistics': ['logistics'],
     'programme': ['programme'],
     'campus': ['campus'],
     'jodhpur': ['jodhpur', 'dept-slideshow'],
@@ -69,6 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     'abstract',
     'registration',
     'sponsorship',
+    'logistics',
     'campus',
     'jodhpur',
     'dept-slideshow',
@@ -188,6 +191,73 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelectorAll('.reveal').forEach(el => {
     revealObserver.observe(el);
   });
+
+  const speakerGrid = document.querySelector('.speakers .speaker-grid-all');
+  if (speakerGrid) {
+    const speakerCards = Array.from(speakerGrid.querySelectorAll(':scope > .speaker-card'));
+    const keynoteNames = [
+      'Prof. Ewa Kowalska',
+      'Prof. Marcin Kobielusz',
+      'Prof. Sonil Nanda',
+      'Prof. Vimal C. Srivastava',
+      'Prof. Vikram Vishal',
+      'Prof. Debasis Sarkar',
+      'Prof. Sridharakumar Narasimhan',
+      'Prof. Sudhanshu Sharma'
+    ];
+    const plenaryNames = ['Prof. Kaustubha Mohanty', 'Prof. Suddhasatwa Basu'];
+    const getCardName = card => card.querySelector('.speaker-name').textContent.trim();
+    const findCards = names => names.map(name => speakerCards.find(card => getCardName(card) === name)).filter(Boolean);
+    const categoryDefinitions = [
+      { title: 'Plenary Talk', cards: findCards(plenaryNames) },
+      { title: 'Keynote Talk', cards: findCards(keynoteNames) },
+      { title: 'Invited Talk', cards: speakerCards.filter(card => !plenaryNames.includes(getCardName(card)) && !keynoteNames.includes(getCardName(card))) }
+    ];
+    const speakerGroups = document.createElement('div');
+    speakerGroups.className = 'speaker-groups reveal visible';
+
+    categoryDefinitions.forEach(({ title, cards }) => {
+      const category = document.createElement('section');
+      category.className = 'speaker-category';
+      const heading = document.createElement('h3');
+      heading.className = 'speaker-category-title';
+      heading.textContent = title;
+      const grid = document.createElement('div');
+      grid.className = 'speaker-grid-all';
+      grid.append(...cards);
+      category.append(heading, grid);
+      speakerGroups.append(category);
+    });
+
+    speakerGrid.replaceWith(speakerGroups);
+  }
+
+  const localCommittee = document.querySelector('#comm-local .comm-multi-row');
+  if (localCommittee) {
+    const localMemberOrder = [
+      'Prof. Pradip Kumar Tewari',
+      'Dr. Angan Sengupta',
+      'Dr. Praveen Kumar Sappidi',
+      'Dr. Tara Chand Kumawat',
+      'Dr. Krunal Gangawane',
+      'Dr. Varanasi Santhosh Kumar',
+      'Dr. Halpati Jigar Shaileshkumar',
+      'Dr. Prateek Dwivedi',
+      'Dr. Rakshit Kumar Jain',
+      'Dr. Manokaran V.',
+      'Dr. Swati Jindal',
+      'Dr. Chandana N.',
+      'Dr. Saran Aadhar',
+      'Dr. Hardik Kothadia',
+      'Dr. Vinod Vijay Kumar'
+    ];
+    const localCards = Array.from(localCommittee.querySelectorAll('.comm-card'));
+    const cardsByName = new Map(localCards.map(card => [card.querySelector('.comm-name').textContent.trim(), card]));
+    localMemberOrder.forEach(name => {
+      const card = cardsByName.get(name);
+      if (card) localCommittee.append(card);
+    });
+  }
 
   // 4. Invited Speaker Carousel
   const speakerStage = document.querySelector('.speaker-stage');
