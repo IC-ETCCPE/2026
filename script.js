@@ -37,12 +37,15 @@ document.addEventListener('DOMContentLoaded', () => {
   // (Mimics ICEMD site where clicking a nav item shows only that section)
   // ========================================================
   const SECTION_MAP = {
-    'home': ['hero', 'about'],
-    'hero': ['hero', 'about'],
+    'home': ['hero', 'home-highlights', 'about'],
+    'hero': ['hero', 'home-highlights', 'about'],
     'about': ['about'],
     'themes': ['themes'],
+    'publication': ['publication'],
     'dates': ['dates'],
     'speakers': ['speakers'],
+    'plenary-speakers': ['speakers'],
+    'foreign-speakers': ['speakers'],
     'committee': ['committee'],
     'comm-international': ['committee'],
     'comm-national': ['committee'],
@@ -62,8 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const ALL_SECTIONS = [
     'hero',
+    'home-highlights',
     'about',
     'themes',
+    'publication',
     'dates',
     'programme',
     'speakers',
@@ -80,7 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function showSection(targetKey, scrollSubId = null) {
     const cleanKey = (targetKey || 'home').toLowerCase().replace(/^#/, '');
-    const activeSectionIds = SECTION_MAP[cleanKey] || ['hero', 'about'];
+    const activeSectionIds = SECTION_MAP[cleanKey] || ['hero', 'home-highlights', 'about'];
 
     // Toggle display of each section
     ALL_SECTIONS.forEach(id => {
@@ -115,7 +120,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Highlight the active parent link
     let activeHref = '#' + cleanKey;
-    if (cleanKey.startsWith('comm-')) {
+    if (cleanKey === 'plenary-speakers' || cleanKey === 'foreign-speakers') {
+      activeHref = '#speakers';
+    } else if (cleanKey.startsWith('comm-')) {
       activeHref = '#committee';
       const subLink = document.querySelector(`.dropdown-menu a[href="#${cleanKey}"]`);
       if (subLink) subLink.classList.add('active');
@@ -129,7 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Scroll to subsection or top
-    const scrollToId = scrollSubId || (cleanKey.startsWith('comm-') ? cleanKey : null);
+    const scrollToId = scrollSubId || (cleanKey.startsWith('comm-') || cleanKey === 'plenary-speakers' || cleanKey === 'foreign-speakers' ? cleanKey : null);
     if (scrollToId) {
       const subEl = document.getElementById(scrollToId);
       if (subEl) {
@@ -209,16 +216,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const getCardName = card => card.querySelector('.speaker-name').textContent.trim();
     const findCards = names => names.map(name => speakerCards.find(card => getCardName(card) === name)).filter(Boolean);
     const categoryDefinitions = [
-      { title: 'Plenary Talk', cards: findCards(plenaryNames) },
+      { id: 'plenary-speakers', title: 'Plenary Talk', cards: findCards(plenaryNames) },
       { title: 'Keynote Talk', cards: findCards(keynoteNames) },
       { title: 'Invited Talk', cards: speakerCards.filter(card => !plenaryNames.includes(getCardName(card)) && !keynoteNames.includes(getCardName(card))) }
     ];
     const speakerGroups = document.createElement('div');
     speakerGroups.className = 'speaker-groups reveal visible';
 
-    categoryDefinitions.forEach(({ title, cards }) => {
+    categoryDefinitions.forEach(({ id, title, cards }) => {
       const category = document.createElement('section');
       category.className = 'speaker-category';
+      if (id) category.id = id;
       const heading = document.createElement('h3');
       heading.className = 'speaker-category-title';
       heading.textContent = title;
