@@ -47,7 +47,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 90px;
+  scroll-padding-top: 115px;
 }
 
 body {
@@ -204,7 +204,7 @@ img {
   right: 0;
   z-index: 1000;
   transition: var(--transition);
-  padding: 12px 0;
+  padding: 6px 0;
   background: rgba(6, 19, 37, 0.96);
   backdrop-filter: blur(16px);
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
@@ -224,7 +224,14 @@ img {
   max-width: 1600px;
   margin: 0 auto;
   padding: 0 20px;
-  gap: 20px;
+  gap: 24px;
+}
+
+.nav-top-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 42px;
 }
 
 .nav-brand {
@@ -280,12 +287,19 @@ img {
 
 .nav-links {
   display: flex;
+  flex-direction: column;
   flex: 1 1 auto;
+  width: auto;
   min-width: 0;
+  gap: 4px;
+}
+
+.nav-links-row {
+  display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 8px 12px;
-  flex-wrap: wrap;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 8px 18px;
 }
 
 .nav-links li {
@@ -421,6 +435,51 @@ img {
   box-shadow: 0 6px 20px rgba(13, 148, 136, 0.5);
 }
 
+@media (min-width: 1201px) {
+  .nav-inner {
+    display: grid;
+    grid-template-columns: 25% 3% 60% 12%;
+    gap: 0;
+  }
+
+  .nav-top-row {
+    grid-column: 1;
+  }
+
+  .nav-brand {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .nav-iitj-logo {
+    max-width: 50%;
+  }
+
+  .nav-links {
+    grid-column: 3;
+    flex: none;
+    width: 100%;
+    height: 64px;
+  }
+
+  .nav-iitj-logo,
+  .nav-event-logo {
+    height: 50px;
+    transform: none;
+  }
+
+  .nav-links-row {
+    height: 30px;
+    justify-content: space-between;
+    gap: 0;
+  }
+
+  .nav-links a {
+    font-size: 0.92rem;
+    line-height: 1.2;
+  }
+}
+
 /* HAMBURGER */
 .hamburger {
   display: none;
@@ -445,7 +504,7 @@ html {
 }
 
 section {
-  scroll-margin-top: 110px;
+  scroll-margin-top: 115px;
 }
 
 /* HERO SECTION */
@@ -456,7 +515,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 130px 24px 80px 24px;
+  padding: 180px 24px 80px 24px;
   overflow: hidden;
   color: var(--white);
 }
@@ -960,6 +1019,59 @@ section {
 }
 
 /* DATES & TIMELINE */
+.home-date-notice {
+  position: absolute;
+  top: 78px;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 12px 24px;
+  color: var(--white);
+  background: rgba(15, 23, 42, 0.94);
+}
+
+.home-date-notice-inner {
+  display: grid;
+  grid-template-columns: auto repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 8px 20px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.home-date-notice-label {
+  color: #60a5fa;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.home-date-notice-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.88rem;
+  line-height: 1.4;
+}
+
+.home-date-notice-item::before {
+  content: '';
+  width: 7px;
+  height: 7px;
+  flex: 0 0 7px;
+  margin-top: 6px;
+  border-radius: 50%;
+  background: #3b82f6;
+}
+
+.home-date-notice-item strong {
+  color: var(--white);
+}
+
+.home-date-notice-revised {
+  color: rgba(255, 255, 255, 0.72);
+  white-space: nowrap;
+}
+
 .dates {
   background: var(--white);
 }
@@ -1620,6 +1732,59 @@ section {
   background: var(--white);
 }
 
+.sponsors-subsection {
+  margin-bottom: 64px;
+}
+
+.sponsor-partner-group + .sponsor-partner-group {
+  margin-top: 40px;
+}
+
+.sponsor-partner-heading {
+  margin: 0 0 20px;
+  color: var(--navy-deep);
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  text-align: center;
+}
+
+.sponsor-partner-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.sponsor-partner-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 28px;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  background: var(--sand-bg);
+  text-align: center;
+}
+
+.sponsor-partner-logo {
+  width: 100%;
+  height: 130px;
+  object-fit: contain;
+}
+
+.sponsor-partner-card p {
+  width: 100%;
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.sponsor-partner-card a {
+  color: var(--teal-primary);
+  font-weight: 600;
+}
+
 .sponsor-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -2145,13 +2310,141 @@ section {
   }
 }
 
+@media (min-width: 769px) and (max-width: 1200px) {
+  html {
+    scroll-padding-top: 100px;
+  }
+
+  section {
+    scroll-margin-top: 100px;
+  }
+
+  .section.is-active-section:not(.hero) {
+    padding-top: 100px;
+  }
+
+  .hero {
+    padding: 200px 24px 80px;
+  }
+
+  .nav {
+    padding: 12px 0;
+  }
+
+  .nav-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+  }
+
+  .nav-links {
+    width: 100%;
+    flex: 0 0 100%;
+    gap: 20px;
+    padding: 30px;
+    border-top: 0;
+    background: var(--navy-deep);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-links-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .home-date-notice-inner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-date-notice-label {
+    grid-column: 1 / -1;
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-height: calc(100vh - 70px);
+    padding: 30px;
+    overflow-y: auto;
+    background: var(--navy-deep);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .nav-links-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .home-date-notice {
+    top: 70px;
+    padding: 10px 18px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-dropdown {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .dropdown-menu {
+    position: static;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    width: 100%;
+    margin-top: 8px;
+    padding: 6px 0;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-sm);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: none;
+  }
+
+  .dropdown-menu a {
+    padding: 8px 12px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
 @media (max-width: 768px) {
   .highlight-grid {
     grid-template-columns: 1fr;
   }
 
+  .sponsor-partner-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .publication-content {
     padding: 24px;
+  }
+
+  .hero {
+    padding: 260px 24px 80px;
+  }
+
+  section {
+    scroll-margin-top: 100px;
+  }
+
+  .section.is-active-section:not(.hero) {
+    padding-top: 100px;
   }
 
   .speaker-track {
@@ -2206,6 +2499,26 @@ section {
     box-shadow: 0 10px 30px rgba(0,0,0,0.4);
     max-height: calc(100vh - 70px);
     overflow-y: auto;
+    border-top: 0;
+  }
+
+  .nav-links-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .home-date-notice {
+    top: 70px;
+    padding: 10px 16px;
+  }
+
+  .home-date-notice-inner {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .home-date-notice-item {
+    font-size: 0.8rem;
   }
 
   .nav-links.open {
@@ -2432,6 +2745,15 @@ section {
 
 .logistics-hotel-grid .travel-card h3 {
   overflow-wrap: anywhere;
+}
+
+.travel-details-grid {
+  grid-template-columns: minmax(0, 560px);
+  justify-content: center;
+}
+
+.travel-details-grid .travel-card {
+  text-align: center;
 }
 
 .hotel-map-link {
@@ -2851,6 +3173,34 @@ section {
 }
 
 @media (max-width: 576px) {
+  .nav-inner {
+    padding: 0 12px;
+    gap: 8px;
+  }
+
+  .nav-top-row {
+    min-height: 36px;
+  }
+
+  .nav-brand {
+    gap: 5px;
+  }
+
+  .nav-iitj-logo {
+    width: 128px;
+    height: 36px;
+    padding: 3px 6px;
+  }
+
+  .nav-event-logo {
+    width: 36px;
+    height: 36px;
+  }
+
+  .nav-acronym {
+    font-size: 0.84rem;
+  }
+
   .comm-multi-row .comm-card {
     flex: 0 1 100%;
     max-width: 320px;
@@ -2874,6 +3224,16 @@ section {
 .section.is-active-section.countdown-host:not(.hero) {
   min-height: 0;
   padding-bottom: 0;
+}
+
+@media (max-width: 1200px) {
+  section {
+    scroll-margin-top: 100px;
+  }
+
+  .section.is-active-section:not(.hero) {
+    padding-top: 100px;
+  }
 }
 
 @keyframes fadeInSection {

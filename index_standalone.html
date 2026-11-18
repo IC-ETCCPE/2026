@@ -774,6 +774,30 @@ img {
   margin: 32px auto 0;
 }
 
+.speaker-category + .speaker-category {
+  margin-top: 48px;
+}
+
+.speaker-category-title {
+  margin: 0;
+  color: var(--navy-deep);
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  text-align: center;
+}
+
+.speaker-grid-all {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 32px auto 0;
+}
+
+.speaker-category .speaker-card {
+  flex: 0 1 calc((100% - 72px) / 4);
+}
+
 .speaker-stage {
   position: relative;
   overflow: hidden;
@@ -1419,6 +1443,11 @@ img {
     text-align: center;
   }
 
+  .speaker-category .speaker-card {
+    display: grid;
+    flex: 0 1 calc((100% - 12px) / 2);
+  }
+
   .speaker-card.is-visible {
     display: grid;
   }
@@ -1775,7 +1804,7 @@ img {
   <section class="section speakers" id="speakers">
     <div class="container">
       <div class="section-label center">Eminent Experts</div>
-      <h2 class="section-heading center">Invited Speakers</h2>
+      <h2 class="section-heading center">Speakers</h2>
 
       <div class="speaker-carousel reveal" aria-label="Invited speakers">
         <div class="speaker-stage">
@@ -1837,6 +1866,76 @@ img {
           <button class="speaker-page" type="button" aria-label="Show speakers 7 to 9"></button>
         </div>
       </div>
+
+      <section class="speaker-category">
+        <h3 class="speaker-category-title">Keynote Talk</h3>
+        <div class="speaker-grid-all">
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/Mani%20Bhushan.jpeg" alt="Prof. Mani Bhushan"></div>
+            <h3 class="speaker-name">Prof. Mani Bhushan</h3>
+            <p class="speaker-affiliation">IIT Bombay</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=N7-BmjMAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/Eran%20adri.webp" alt="Eran Edri"></div>
+            <h3 class="speaker-name">Eran Edri</h3>
+            <p class="speaker-affiliation">Associate Professor, Department of Chemical Engineering; Member, School of Sustainability and Climate Change</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=EmWBg_IAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/harishchdra%20singh.jpg" alt="Harishchandra Singh"></div>
+            <h3 class="speaker-name">Harishchandra Singh</h3>
+            <p class="speaker-affiliation">PhD Research Associate, Nano and Molecular Systems Research Unit, Faculty of Science</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=dvuqa6AAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+        </div>
+      </section>
+      <section class="speaker-category">
+        <h3 class="speaker-category-title">Invited Talk</h3>
+        <div class="speaker-grid-all">
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/Prof.%20Swatantra%20Pratap%20Singh.jfif" alt="Prof. Swatantra P. Singh"></div>
+            <h3 class="speaker-name">Prof. Swatantra P. Singh</h3>
+            <p class="speaker-affiliation">IIT Bombay</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=SpxVC1AAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/Dr%20Omvir%20Singh.jpg" alt="Prof. Omvir Singh"></div>
+            <h3 class="speaker-name">Prof. Omvir Singh</h3>
+            <p class="speaker-affiliation">Rajiv Gandhi Institute of Petroleum Technology</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=k6n-LKgAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/Prof.%20Ashish%20A%20Prabhu.jfif" alt="Prof. Ashish A Prabhu"></div>
+            <h3 class="speaker-name">Prof. Ashish A Prabhu</h3>
+            <p class="speaker-affiliation">National Institute of Technology Warangal</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=r8WCxO0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/Dr%20Jainesh%20Jhaveri.jpg" alt="Dr. Jainesh Jhaveri"></div>
+            <h3 class="speaker-name">Dr. Jainesh Jhaveri</h3>
+            <p class="speaker-affiliation">PDPU</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=7lYukGcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/neha%20antil.jpeg" alt="Neha Antil"></div>
+            <h3 class="speaker-name">Neha Antil</h3>
+            <p class="speaker-affiliation">Institute for a Sustainable Hydrogen Economy</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=BbKjAW8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+          <article class="speaker-card">
+            <div class="speaker-photo"><img src="New_speakers_details/Arunima%20singh.jpg" alt="Arunima Singh"></div>
+            <h3 class="speaker-name">Arunima Singh</h3>
+            <p class="speaker-affiliation">Assistant Professor, Department of Physics, ASU</p>
+            <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=lm7vc1sAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+          </article>
+          <article class="speaker-card">
+            <div class="speaker-photo"></div>
+            <h3 class="speaker-name">Manas Kumar Mithun</h3>
+            <p class="speaker-affiliation">IndianOil R&amp;D Centre</p>
+          </article>
+        </div>
+      </section>
 
     </div>
   </section>

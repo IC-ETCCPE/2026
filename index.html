@@ -16,48 +16,51 @@
   <!-- STICKY NAVBAR -->
   <nav class="nav" id="nav">
     <div class="nav-inner">
-      <!-- Left: IIT Jodhpur Rectangular Logo & Conf Brand -->
-      <a href="#home" class="nav-brand">
-        <img src="images/iitjlogo.jpeg" alt="IIT Jodhpur Logo" class="nav-iitj-logo">
-        <div class="nav-conf-badge">
-          <span class="nav-acronym">IC-ETCPE 2026</span>
-        </div>
-        <img src="images/IC-ETCPE%202026%20Event%20Logo.png" alt="IC-ETCPE 2026 Logo" class="nav-event-logo">
-      </a>
+      <div class="nav-top-row">
+        <a href="#home" class="nav-brand">
+          <img src="images/iitjlogo.jpeg" alt="IIT Jodhpur Logo" class="nav-iitj-logo">
+          <div class="nav-conf-badge">
+            <span class="nav-acronym">IC-ETCPE 2026</span>
+          </div>
+          <img src="images/IC-ETCPE%202026%20Event%20Logo.png" alt="IC-ETCPE 2026 Logo" class="nav-event-logo">
+        </a>
 
-      <!-- Center: Navigation Links -->
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#themes">Themes</a></li>
-        <li><a href="#publication">Publication</a></li>
-        <li><a href="#dates">Key Dates</a></li>
-        <li><a href="#programme">Programme</a></li>
-        <li><a href="#speakers">Speakers</a></li>
-        <li class="nav-dropdown">
-          <a href="#committee" class="dropdown-toggle">Committee <span class="dropdown-arrow">▾</span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#comm-international">International Advisory Committee</a></li>
-            <li><a href="#comm-national">National Advisory Committee</a></li>
-            <li><a href="#comm-core">Core Organizing Committee</a></li>
-            <li><a href="#comm-local">Local Organizing Committee</a></li>
-            <li><a href="#comm-website">Website Management</a></li>
-            <li><a href="#comm-logistics">Local and Logistics Management</a></li>
-          </ul>
-        </li>
-        <li><a href="#abstract">Abstract</a></li>
-        <li><a href="#registration">Registration</a></li>
-        <li><a href="#sponsorship">Sponsorship</a></li>
-        <li><a href="#logistics">Logistics</a></li>
-        <li><a href="#campus">Campus</a></li>
-        <li><a href="#jodhpur">About Jodhpur</a></li>
-        <li><a href="#contact" class="nav-cta">Contact Us</a></li>
-      </ul>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
 
-      <!-- Mobile Hamburger Button -->
-      <button class="hamburger" id="hamburger" aria-label="Toggle navigation menu">
-        <span></span><span></span><span></span>
-      </button>
+      <div class="nav-links">
+        <ul class="nav-links-row">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#themes">Themes</a></li>
+          <li><a href="#publication">Publication</a></li>
+          <li><a href="#dates">Key Dates</a></li>
+          <li><a href="#programme">Programme</a></li>
+          <li><a href="#speakers">Speakers</a></li>
+        </ul>
+        <ul class="nav-links-row">
+          <li class="nav-dropdown">
+            <a href="#committee" class="dropdown-toggle">Committee <span class="dropdown-arrow">▾</span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#comm-international">International Advisory Committee</a></li>
+              <li><a href="#comm-national">National Advisory Committee</a></li>
+              <li><a href="#comm-core">Core Organizing Committee</a></li>
+              <li><a href="#comm-local">Local Organizing Committee</a></li>
+              <li><a href="#comm-website">Website Management</a></li>
+              <li><a href="#comm-logistics">Local and Logistics Management</a></li>
+            </ul>
+          </li>
+          <li><a href="#abstract">Abstract</a></li>
+          <li><a href="#registration">Registration</a></li>
+          <li><a href="#sponsorship">Sponsorship</a></li>
+          <li><a href="#logistics">Logistics</a></li>
+          <li><a href="#campus">Campus</a></li>
+          <li><a href="#jodhpur">About Jodhpur</a></li>
+          <li><a href="#contact" class="nav-cta">Contact Us</a></li>
+        </ul>
+      </div>
     </div>
   </nav>
 
@@ -70,7 +73,16 @@
       <div class="hero-bg-slide slide-4"></div>
       <div class="hero-bg-slide slide-5"></div>
     </div>
-    
+
+    <div class="home-date-notice" aria-label="Important Dates">
+      <div class="home-date-notice-inner">
+        <span class="home-date-notice-label">Important Dates</span>
+        <span class="home-date-notice-item"><span><strong>Call for Abstracts Deadline (Oral &amp; Poster):</strong> 30 November 2026 <span class="home-date-notice-revised">(revised from 10 November)</span></span></span>
+        <span class="home-date-notice-item"><span><strong>Notification for Abstract Acceptance:</strong> 30 November 2026 <span class="home-date-notice-revised">(revised from 10 November)</span></span></span>
+        <span class="home-date-notice-item"><span><strong>Early Bird Registration ends:</strong> 20 November 2026 <span class="home-date-notice-revised">(revised from 10 November)</span></span></span>
+      </div>
+    </div>
+
     <div class="hero-content">
       <div class="hero-eyebrow">
         <span class="hero-eyebrow-dot"></span>
@@ -559,6 +571,65 @@
           <p class="speaker-affiliation">IIT Madras</p>
           <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=Tdtqf5QAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
         </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/Mani%20Bhushan.jpeg" alt="Prof. Mani Bhushan"></div>
+          <h3 class="speaker-name">Prof. Mani Bhushan</h3>
+          <p class="speaker-affiliation">IIT Bombay</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=N7-BmjMAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/Eran%20adri.webp" alt="Eran Edri"></div>
+          <h3 class="speaker-name">Eran Edri</h3>
+          <p class="speaker-affiliation">School of Sustainability and Climate Change</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=EmWBg_IAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/harishchdra%20singh.jpg" alt="Harishchandra Singh"></div>
+          <h3 class="speaker-name">Harishchandra Singh</h3>
+          <p class="speaker-affiliation">Nano and Molecular Systems Research Unit, Faculty of Science</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=dvuqa6AAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/Prof.%20Swatantra%20Pratap%20Singh.jfif" alt="Prof. Swatantra P. Singh"></div>
+          <h3 class="speaker-name">Prof. Swatantra P. Singh</h3>
+          <p class="speaker-affiliation">IIT Bombay</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=SpxVC1AAAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/Dr%20Omvir%20Singh.jpg" alt="Prof. Omvir Singh"></div>
+          <h3 class="speaker-name">Prof. Omvir Singh</h3>
+          <p class="speaker-affiliation">Rajiv Gandhi Institute of Petroleum Technology</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=k6n-LKgAAAAJ&amp;hl=en&amp;oi=sra" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/Prof.%20Ashish%20A%20Prabhu.jfif" alt="Prof. Ashish A Prabhu"></div>
+          <h3 class="speaker-name">Prof. Ashish A Prabhu</h3>
+          <p class="speaker-affiliation">National Institute of Technology Warangal</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?hl=en&amp;user=r8WCxO0AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/Dr%20Jainesh%20Jhaveri.jpg" alt="Dr. Jainesh Jhaveri"></div>
+          <h3 class="speaker-name">Dr. Jainesh Jhaveri</h3>
+          <p class="speaker-affiliation">PDPU</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=7lYukGcAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/neha%20antil.jpeg" alt="Neha Antil"></div>
+          <h3 class="speaker-name">Neha Antil</h3>
+          <p class="speaker-affiliation">Forschungszentrum Jülich</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=BbKjAW8AAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"><img src="New_speakers_details/Arunima%20singh.jpg" alt="Arunima Singh"></div>
+          <h3 class="speaker-name">Arunima Singh</h3>
+          <p class="speaker-affiliation">Department of Physics, ASU</p>
+          <a class="speaker-scholar-link" href="https://scholar.google.com/citations?user=lm7vc1sAAAAJ&amp;hl=en&amp;oi=ao" target="_blank" rel="noopener noreferrer">Google Scholar</a>
+        </article>
+        <article class="speaker-card">
+          <div class="speaker-photo"></div>
+          <h3 class="speaker-name">Manas Kumar Mithun</h3>
+          <p class="speaker-affiliation">IndianOil R&amp;D Centre</p>
+        </article>
       </div>
 
     </div>
@@ -1020,6 +1091,40 @@
   <section class="section sponsorship" id="sponsorship">
     <div class="container">
       <div class="section-label center">Partner With Us</div>
+      <section class="sponsors-subsection" aria-labelledby="sponsors-heading">
+        <h2 class="section-heading center" id="sponsors-heading">Sponsors</h2>
+
+        <div class="sponsor-partner-group">
+          <h3 class="sponsor-partner-heading">Publication and award partners</h3>
+          <div class="sponsor-partner-grid">
+            <article class="sponsor-partner-card reveal">
+              <img src="Sponsors_logo/ACS.png" alt="ACS logo" class="sponsor-partner-logo">
+              <p><strong>Website:</strong> <a href="https://pubs.acs.org/" target="_blank" rel="noopener noreferrer">pubs.acs.org</a></p>
+            </article>
+            <article class="sponsor-partner-card reveal">
+              <img src="Sponsors_logo/Springer%20Nature.png" alt="Springer Nature logo" class="sponsor-partner-logo">
+              <p><strong>Website:</strong> <a href="https://www.springernature.com/gp" target="_blank" rel="noopener noreferrer">springernature.com</a></p>
+            </article>
+          </div>
+        </div>
+
+        <div class="sponsor-partner-group">
+          <h3 class="sponsor-partner-heading">Industry sponsors</h3>
+          <div class="sponsor-partner-grid">
+            <article class="sponsor-partner-card reveal">
+              <img src="Sponsors_logo/DCAM%20LOGO_.jpg.jpeg" alt="D-CAM Engineering logo" class="sponsor-partner-logo">
+              <p><strong>Website:</strong> <a href="http://www.dcamengineering.com/" target="_blank" rel="noopener noreferrer">dcamengineering.com</a></p>
+              <p><strong>Address:</strong> 82, Sarjan Ind. Estate, Side Of Vishala Ind. Estate, Nava Nikol Ring Road Crossing, Nr. Kathwada GIDC, Ahmedabad-382 415 (India)</p>
+            </article>
+            <article class="sponsor-partner-card reveal">
+              <img src="Sponsors_logo/Agarwal%20Brothers.png" alt="Agarwal Brothers logo" class="sponsor-partner-logo">
+              <p><strong>Website:</strong> <a href="https://agarwalbrothers.in/" target="_blank" rel="noopener noreferrer">agarwalbrothers.in</a></p>
+              <p><strong>Address:</strong> S-3, Behind VKI Association Building, Road No. 1, VKIA, Jaipur (Rajasthan) 302013</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <h2 class="section-heading center">Sponsorship Tiers</h2>
       <p class="section-desc">Promote your company, products, and research solutions to leading national and international experts.</p>
 
@@ -1086,7 +1191,7 @@
       <h2 class="section-heading center">Logistics</h2>
 
       <section class="logistics-subsection">
-        <h3 class="logistics-subheading">Accommodation</h3>
+        <h3 class="logistics-subheading">Delegate Accommodation</h3>
         <div class="logistics-hotel-grid">
           <article class="travel-card reveal">
             <h3>Stamps By Eight Continents- Jodhpur</h3>
@@ -1132,9 +1237,22 @@
 
 
       <section class="logistics-subsection visa-subsection">
-        <h3 class="logistics-subheading">Visa Information</h3>
+        <h3 class="logistics-subheading">Accommodation and Visa Information</h3>
         <div class="reg-notes">
-          <p>International participants requiring an invitation letter for a visa application may contact <a href="mailto:iccpe@iitj.ac.in">iccpe@iitj.ac.in</a> with their registration details.</p>
+          <p><strong>Student Accommodation:</strong> AC Hostel Rooms available (charges per person per day is ₹ 600, excluding GST).</p>
+          <p><strong>Visa Information:</strong> International participants requiring an invitation letter for a visa application may contact <a href="mailto:iccpe@iitj.ac.in">iccpe@iitj.ac.in</a> with their registration details.</p>
+        </div>
+      </section>
+
+      <section class="logistics-subsection">
+        <h3 class="logistics-subheading">Travel details</h3>
+        <div class="logistics-hotel-grid travel-details-grid">
+          <article class="travel-card reveal">
+            <h3>Balaji Tours and Travels</h3>
+            <p><strong>Email:</strong> <a href="mailto:balajitours386@gmail.com">balajitours386@gmail.com</a></p>
+            <p><strong>Call to Book:</strong> <a href="tel:+917425879386">+91 74258-79386</a></p>
+            <p><strong>WhatsApp Us:</strong> <a href="https://wa.me/917425879386" target="_blank" rel="noopener noreferrer">74258-79386</a></p>
+          </article>
         </div>
       </section>
 

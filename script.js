@@ -210,7 +210,10 @@ document.addEventListener('DOMContentLoaded', () => {
       'Prof. Vikram Vishal',
       'Prof. Debasis Sarkar',
       'Prof. Sridharakumar Narasimhan',
-      'Prof. Sudhanshu Sharma'
+      'Prof. Sudhanshu Sharma',
+      'Prof. Mani Bhushan',
+      'Eran Edri',
+      'Harishchandra Singh'
     ];
     const plenaryNames = ['Prof. Kaustubha Mohanty', 'Prof. Suddhasatwa Basu'];
     const getCardName = card => card.querySelector('.speaker-name').textContent.trim();
